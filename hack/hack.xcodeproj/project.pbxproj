@@ -14,6 +14,7 @@
 		4CF4D418179A8ABE003118C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D417179A8ABE003118C6 /* CoreLocation.framework */; };
 		4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D41A179ACF63003118C6 /* detailViewController.m */; };
 		9046D00C179AFFA2009460FC /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9046D00B179AFFA2009460FC /* SystemManager.m */; };
+		9046D00F179B4383009460FC /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9046D00E179B4383009460FC /* detailViewController.xib */; };
 		907B0F51179A4287009EE2D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F50179A4287009EE2D9 /* UIKit.framework */; };
 		907B0F53179A4287009EE2D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F52179A4287009EE2D9 /* Foundation.framework */; };
 		907B0F55179A4287009EE2D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F54179A4287009EE2D9 /* CoreGraphics.framework */; };
@@ -72,7 +73,6 @@
 		D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C0179AE4890099C99A /* actionTableViewController.m */; };
 		D89277C4179AFFFB0099C99A /* IHMovieImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */; };
 		D89277C7179B001C0099C99A /* IHMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C6179B001C0099C99A /* IHMovie.m */; };
-		D89277C9179B21DF0099C99A /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89277C8179B21DE0099C99A /* detailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +116,7 @@
 		9046D00A179AFFA2009460FC /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		9046D00B179AFFA2009460FC /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemManager.m; sourceTree = "<group>"; };
 		9046D00D179B005A009460FC /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = Reachability/SynthesizeSingleton.h; sourceTree = "<group>"; };
+		9046D00E179B4383009460FC /* detailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
 		907B0F4D179A4287009EE2D9 /* hack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907B0F50179A4287009EE2D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		907B0F52179A4287009EE2D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -220,7 +221,6 @@
 		D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovieImageBtn.m; path = IHView/IHMovieImageBtn.m; sourceTree = "<group>"; };
 		D89277C5179B001C0099C99A /* IHMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHMovie.h; path = myModel/IHMovie.h; sourceTree = "<group>"; };
 		D89277C6179B001C0099C99A /* IHMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovie.m; path = myModel/IHMovie.m; sourceTree = "<group>"; };
-		D89277C8179B21DE0099C99A /* detailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,8 +536,8 @@
 				4CF4D40F179A8888003118C6 /* locationViewController.mm */,
 				4CF4D410179A8888003118C6 /* locationViewController.xib */,
 				4CF4D419179ACF63003118C6 /* detailViewController.h */,
+				9046D00E179B4383009460FC /* detailViewController.xib */,
 				4CF4D41A179ACF63003118C6 /* detailViewController.m */,
-				D89277C8179B21DE0099C99A /* detailViewController.xib */,
 				D89277B8179AC7EB0099C99A /* actionCreateViewController.h */,
 				D89277B9179AC7EB0099C99A /* actionCreateViewController.m */,
 				D89277BF179AE4880099C99A /* actionTableViewController.h */,
@@ -606,7 +606,7 @@
 				D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */,
 				4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */,
 				90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */,
-				D89277C9179B21DF0099C99A /* detailViewController.xib in Resources */,
+				9046D00F179B4383009460FC /* detailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
