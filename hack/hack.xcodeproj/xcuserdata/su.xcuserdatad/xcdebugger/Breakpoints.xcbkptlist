@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
-         timestampString = "396025584.246619"
+         timestampString = "396029028.559005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,26 +34,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
-         timestampString = "396025584.246619"
+         timestampString = "396029028.559005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
-         landmarkName = "-changeView:"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "-showManuList"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
-         timestampString = "396025584.246619"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
-         landmarkName = "@implementation FrontViewController"
-         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -105,6 +92,45 @@
          startingLineNumber = "152"
          endingLineNumber = "152"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
+         timestampString = "396029028.559005"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
+         landmarkName = "-changeView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
+         timestampString = "396029028.559005"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-loadView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "hack/myViewController/ZUUIRevealController/FrontViewController.m"
+         timestampString = "396029028.559005"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

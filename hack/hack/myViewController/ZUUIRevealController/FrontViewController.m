@@ -10,6 +10,9 @@
 #import "RevealViewController.h"
 #import "NaviPopMenuView.h"
 #import "actionCreateViewController.h"
+#import "IHActionTableViewCell.h"
+#import "locationViewController.h"
+#import "actionTableViewController.h"
 
 typedef enum
 {
@@ -32,6 +35,17 @@ ViewType;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        
+    }
+    return self;
+}
+
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        
     }
     return self;
 }
@@ -39,6 +53,8 @@ ViewType;
 - (void)loadView
 {
     [super loadView];
+    self.tabBar.hidden = YES;
+   
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
@@ -48,7 +64,7 @@ ViewType;
 	}
 
 
-    UISegmentedControl *segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
+    segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
     segement.selectedSegmentIndex = 0;
     [segement addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
     segement.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -80,9 +96,20 @@ ViewType;
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    locationViewController *locatioVC = [[locationViewController alloc]init];
+    [self addChildViewController:locatioVC];
+    actionTableViewController *actionVC = [[actionTableViewController alloc]init];
+    [self addChildViewController:actionVC];
+    self.selectedIndex = 1;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [segement setSelectedSegmentIndex:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,21 +121,22 @@ ViewType;
 - (void)changeView:(UISegmentedControl *)sender
 {
 
-    switch (sender.selectedSegmentIndex)
-    {
-        case EViewTypeMap:
-        {
-            NSLog(@"show Map");
-            break;
-        }
-        case EViewTypeList:
-        {
-            NSLog(@"Show List");
-            break;
-        }
-        default:
-            break;
-    }
+//    switch (sender.selectedSegmentIndex)
+//    {
+//        case EViewTypeMap:
+//        {
+//            [self setSelectedIndex:sender.selectedSegmentIndex];
+//            break;
+//        }
+//        case EViewTypeList:
+//        {
+//            NSLog(@"Show List");
+//            break;
+//        }
+//        default:
+//            break;
+//    }
+    [self setSelectedIndex:sender.selectedSegmentIndex];
 }
 
 

@@ -25,7 +25,7 @@
         [bannerView addSubview:titleLab];
         [self.contentView addSubview:bannerView];
         
-        tipView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.contentView.frame.size.width, 90)];
+        tipView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.contentView.frame.size.width, 110)];
         photoView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 90, 90)];
         photoView.image = [UIImage imageNamed:@"20115201212718777801.jpg"];
         [tipView addSubview:photoView];
