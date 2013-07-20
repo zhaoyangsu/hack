@@ -46,6 +46,9 @@
 		D8927731179A67080099C99A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927730179A67080099C99A /* SystemConfiguration.framework */; };
 		D8927733179A671C0099C99A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927732179A671C0099C99A /* libxml2.dylib */; };
 		D8927735179A67230099C99A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927734179A67230099C99A /* libz.dylib */; };
+		D8927738179A6B490099C99A /* IHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8927737179A6B490099C99A /* IHTableView.m */; };
+		D892773C179A6BB00099C99A /* IHActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D892773B179A6BB00099C99A /* IHActionTableViewCell.m */; };
+		D892773F179A6C240099C99A /* IHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D892773E179A6C240099C99A /* IHAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +124,12 @@
 		D8927730179A67080099C99A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8927732179A671C0099C99A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D8927734179A67230099C99A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D8927736179A6B490099C99A /* IHTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHTableView.h; path = IHView/IHTableView.h; sourceTree = "<group>"; };
+		D8927737179A6B490099C99A /* IHTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHTableView.m; path = IHView/IHTableView.m; sourceTree = "<group>"; };
+		D892773A179A6BB00099C99A /* IHActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHActionTableViewCell.h; path = IHView/IHActionTableViewCell.h; sourceTree = "<group>"; };
+		D892773B179A6BB00099C99A /* IHActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHActionTableViewCell.m; path = IHView/IHActionTableViewCell.m; sourceTree = "<group>"; };
+		D892773D179A6C240099C99A /* IHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHAction.h; path = myModel/IHAction.h; sourceTree = "<group>"; };
+		D892773E179A6C240099C99A /* IHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHAction.m; path = myModel/IHAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +154,6 @@
 		907B0F44179A4287009EE2D9 = {
 			isa = PBXGroup;
 			children = (
-				D8927734179A67230099C99A /* libz.dylib */,
-				D8927732179A671C0099C99A /* libxml2.dylib */,
-				D8927730179A67080099C99A /* SystemConfiguration.framework */,
-				D892772E179A67000099C99A /* MobileCoreServices.framework */,
-				D892772C179A66F30099C99A /* CFNetwork.framework */,
 				907B0F56179A4287009EE2D9 /* hack */,
 				907B0F4F179A4287009EE2D9 /* Frameworks */,
 				907B0F4E179A4287009EE2D9 /* Products */,
@@ -167,6 +171,11 @@
 		907B0F4F179A4287009EE2D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8927734179A67230099C99A /* libz.dylib */,
+				D8927732179A671C0099C99A /* libxml2.dylib */,
+				D8927730179A67080099C99A /* SystemConfiguration.framework */,
+				D892772E179A67000099C99A /* MobileCoreServices.framework */,
+				D892772C179A66F30099C99A /* CFNetwork.framework */,
 				907B0F50179A4287009EE2D9 /* UIKit.framework */,
 				907B0F52179A4287009EE2D9 /* Foundation.framework */,
 				907B0F54179A4287009EE2D9 /* CoreGraphics.framework */,
@@ -177,6 +186,10 @@
 		907B0F56179A4287009EE2D9 /* hack */ = {
 			isa = PBXGroup;
 			children = (
+				D8927741179A71170099C99A /* images */,
+				D8927742179A71170099C99A /* myViewController */,
+				D8927740179A6C2A0099C99A /* myModel */,
+				D8927739179A6B500099C99A /* myView */,
 				D89276B4179A66910099C99A /* ASIHttpRequest */,
 				D89276B0179A66600099C99A /* Reachability */,
 				907B0F5F179A4287009EE2D9 /* AppDelegate.h */,
@@ -292,6 +305,40 @@
 			path = S3;
 			sourceTree = "<group>";
 		};
+		D8927739179A6B500099C99A /* myView */ = {
+			isa = PBXGroup;
+			children = (
+				D8927736179A6B490099C99A /* IHTableView.h */,
+				D8927737179A6B490099C99A /* IHTableView.m */,
+				D892773A179A6BB00099C99A /* IHActionTableViewCell.h */,
+				D892773B179A6BB00099C99A /* IHActionTableViewCell.m */,
+			);
+			name = myView;
+			sourceTree = "<group>";
+		};
+		D8927740179A6C2A0099C99A /* myModel */ = {
+			isa = PBXGroup;
+			children = (
+				D892773D179A6C240099C99A /* IHAction.h */,
+				D892773E179A6C240099C99A /* IHAction.m */,
+			);
+			name = myModel;
+			sourceTree = "<group>";
+		};
+		D8927741179A71170099C99A /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		D8927742179A71170099C99A /* myViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = myViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +431,9 @@
 				D892771A179A66910099C99A /* ASIS3ObjectRequest.m in Sources */,
 				D892771B179A66910099C99A /* ASIS3Request.m in Sources */,
 				D892771C179A66910099C99A /* ASIS3ServiceRequest.m in Sources */,
+				D8927738179A6B490099C99A /* IHTableView.m in Sources */,
+				D892773C179A6BB00099C99A /* IHActionTableViewCell.m in Sources */,
+				D892773F179A6C240099C99A /* IHAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
