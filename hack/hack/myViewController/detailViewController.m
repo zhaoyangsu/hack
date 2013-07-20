@@ -16,19 +16,24 @@
 @implementation detailViewController
 @synthesize detailAction;
 
+@synthesize leaderUserName;
 @synthesize actionName = _actionName;
-@synthesize startTime = _startTime;
-@synthesize endTime = _endTime;
+@synthesize actionTime;
+@synthesize actionType;
 @synthesize insertCount = _insertCount;
+@synthesize actionImageView;
+@synthesize actionTip;
 
-@synthesize photoesPage;
-@synthesize audioesPage;
-@synthesize videosPage;
-
-@synthesize photoArr = _photoArr;
-@synthesize audioArr = _audioArr;
-@synthesize videoArr = _videoArr;
+//@synthesize photoesPage;
+//@synthesize audioesPage;
+//@synthesize videosPage;
+//
+//@synthesize photoArr = _photoArr;
+//@synthesize audioArr = _audioArr;
+//@synthesize videoArr = _videoArr;
 @synthesize scrollView = _scrollView;
+
+@synthesize addedBtn;
  
 #pragma mark - life circle
 - (id)initWithAction:(IHAction *)aAction
@@ -40,17 +45,23 @@
         [formatter setDateFormat : @"yyyy年M月d日 H点m分"];
         
         _actionName.text = aAction.actionTip;
-        _startTime.text = [formatter stringFromDate:aAction.startTime];
-        _endTime.text = [formatter stringFromDate:aAction.endTime];
+        NSString *startTime = [formatter stringFromDate:aAction.startTime];
+        NSString *endTime = [formatter stringFromDate:aAction.endTime];
+        actionTime.text = [[NSString alloc] initWithFormat:@"%@ -- %@",startTime,endTime];
+        actionType.text = aAction.type.typeName;
         _insertCount = [NSString stringWithFormat:@"%d",aAction.insterNum ];
         
-        [videosPage setNumberOfPages:2];
-        [videosPage setCurrentPage:0];
-        [videosPage addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+        actionImageView.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@",aAction.actionHeaderPhoto]];
+        actionTip.text = aAction.actionTip;
+        
+//        [videosPage setNumberOfPages:2];
+//        [videosPage setCurrentPage:0];
+//        [videosPage addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
         
         _photoArr = aAction.photoes;
         _audioArr = aAction.audioes;
         _videoArr = aAction.videos;
+        [addedBtn addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
        // Custom initialization
     }
     return self;
@@ -68,11 +79,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-<<<<<<< HEAD
-    
-=======
     [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 600)];
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 }
 - (void)layoutViews
 {
@@ -83,6 +90,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)addAction
+{
+    
 }
 
 @end

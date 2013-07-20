@@ -87,11 +87,7 @@
     _mapView = [[BMKMapView alloc]initWithFrame:self.view.bounds];
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
-    
-<<<<<<< HEAD
-=======
- 
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
+
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
     _search = [[BMKSearch alloc]init];
