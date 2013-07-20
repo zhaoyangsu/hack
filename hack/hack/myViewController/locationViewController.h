@@ -11,6 +11,10 @@
 @interface locationViewController : UIViewController<BMKMapViewDelegate>
 {
     BMKMapView *mapView;
+    BMKUserLocation *userLocation;
+    
 }
 @property(nonatomic,strong)BMKMapView *mapView;
+@property(nonatomic,strong)BMKUserLocation *userLocation;
+
 @end
