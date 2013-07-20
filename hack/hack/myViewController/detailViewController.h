@@ -14,6 +14,7 @@
     UILabel *startTime;
     UILabel *endTime;
     UILabel *insertCount;
+     
     
     NSMutableArray *photoArr;
     NSMutableArray *audioArr;

@@ -9,7 +9,8 @@
 #import "detailViewController.h"
 
 @interface detailViewController ()
-
+@property(nonatomic,strong)IBOutlet UIScrollView *scrollView;
+@property(nonatomic,strong)
 @end
 
 @implementation detailViewController
@@ -20,6 +21,8 @@
 @synthesize photoArr = _photoArr;
 @synthesize audioArr = _audioArr;
 @synthesize videoArr = _videoArr;
+@synthesize scrollView = _scrollView;
+ 
 #pragma mark - life circle
 - (id)initWithAction:(IHAction *)aAction
 {
@@ -52,8 +55,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 600)];
 }
+- (void)layoutViews
+{
+    
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
