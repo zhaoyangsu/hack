@@ -7,8 +7,10 @@
 //
 
 #import "locationViewController.h"
+#import "IHAction.h"
 
 @interface locationViewController ()
+@property (nonatomic, assign) BOOL clickAnnotation;
 
 @end
 
@@ -17,8 +19,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
     }
     return self;
 }
@@ -29,17 +31,62 @@
     _mapView = [[BMKMapView alloc]initWithFrame:self.view.bounds];
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
-    // Do any additional setup after loading the view from its nib.
+    _mapView.delegate = self; 
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [_mapView viewWillAppear];
-    _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    
 }
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    _mapView.delegate = nil;
+}
+
+#pragma mark -
+#pragma mark mapViewDelegate
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
+        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
+        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        return newAnnotationView;
+    }
+    return nil;
+}
+
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
+{
+    self.clickAnnotation = YES;
+}
+
+
+- (void)mapview:(BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate
+{
+    if (!self.clickAnnotation)
+    {
+        BMKPointAnnotation *annotation = [[BMKPointAnnotation alloc]init];
+        annotation.coordinate = coordinate;
+        annotation.title = @"";
+        [_mapView addAnnotation:annotation];
+    }
+    else
+    {
+        self.clickAnnotation = NO;
+    }
+}
+
+- (void)goToDetail:(IHAction *)action
+{
+    
+}
+
 @end
