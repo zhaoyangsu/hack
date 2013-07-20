@@ -87,7 +87,8 @@
     _mapView = [[BMKMapView alloc]initWithFrame:self.view.bounds];
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
-
+    
+ 
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
     _search = [[BMKSearch alloc]init];
@@ -140,6 +141,12 @@
     }];
 
 }
+-(void)hideToolBar
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        [_toolBarView setFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 50)];
+    }];
+}
 #pragma mark - 
 - (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)aUserLocation
 {
@@ -154,6 +161,11 @@
 
 #pragma mark -
 #pragma mark mapViewDelegate
+- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
+{
+    [self hideToolBar];
+}
+
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
