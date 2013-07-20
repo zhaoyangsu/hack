@@ -8,12 +8,10 @@
 
 #import "actionTableViewController.h"
 #import "IHActionTableViewCell.h"
-<<<<<<< HEAD
 #import "detailViewController.h"
-=======
+
 #import "IHAction.h"
 #import "actionCreateViewController.h"
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 
 @interface actionTableViewController ()
 @property (nonatomic, strong) NSMutableArray *dateSeouce;
@@ -92,14 +90,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-<<<<<<< HEAD
+
     IHAction *selectAction = (IHAction *)[actionsArray objectAtIndex:indexPath.row];
     detailViewController *detailVC = [[detailViewController alloc] initWithAction:selectAction];
-=======
     IHAction *action = self.dateSeouce[indexPath.row];
     actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:action];
     [self.navigationController pushViewController:actionVC animated:YES];
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 }
 
 @end

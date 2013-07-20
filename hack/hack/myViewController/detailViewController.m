@@ -68,11 +68,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-<<<<<<< HEAD
-    
-=======
     [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 600)];
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 }
 - (void)layoutViews
 {

@@ -257,7 +257,6 @@
 								<reference key="IBUIFont" ref="437875883"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
-<<<<<<< HEAD
 							<object class="IBUIPageControl" id="67167747">
 								<reference key="NSNextResponder" ref="877763817"/>
 								<int key="NSvFlags">1316</int>
@@ -282,7 +281,6 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-=======
 							<object class="IBUILabel" id="254218489">
 								<reference key="NSNextResponder" ref="877763817"/>
 								<int key="NSvFlags">292</int>
@@ -303,7 +301,6 @@
 								<reference key="IBUIFontDescription" ref="456373618"/>
 								<reference key="IBUIFont" ref="437875883"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 							</object>
 						</array>
 						<string key="NSFrame">{{-11, -43}, {331, 591}}</string>
@@ -392,19 +389,16 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-<<<<<<< HEAD
 						<string key="label">videosPage</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="67167747"/>
 					</object>
 					<int key="connectionID">27</int>
-=======
 						<string key="label">scrollView</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="877763817"/>
 					</object>
 					<int key="connectionID">26</int>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -443,21 +437,15 @@
 							<reference ref="402783839"/>
 							<reference ref="222941886"/>
 							<reference ref="933912338"/>
-<<<<<<< HEAD
 							<reference ref="457415232"/>
-=======
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 							<reference ref="1062384680"/>
 							<reference ref="823199179"/>
 							<reference ref="54795394"/>
 							<reference ref="525716907"/>
-<<<<<<< HEAD
 							<reference ref="67167747"/>
 							<reference ref="548211046"/>
-=======
 							<reference ref="254218489"/>
 							<reference ref="457415232"/>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -512,7 +500,6 @@
 						<reference key="parent" ref="877763817"/>
 					</object>
 					<object class="IBObjectRecord">
-<<<<<<< HEAD
 						<int key="objectID">26</int>
 						<reference key="object" ref="67167747"/>
 						<reference key="parent" ref="877763817"/>
@@ -520,10 +507,8 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
 						<reference key="object" ref="548211046"/>
-=======
 						<int key="objectID">27</int>
 						<reference key="object" ref="254218489"/>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 						<reference key="parent" ref="877763817"/>
 					</object>
 				</array>
@@ -544,12 +529,9 @@
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-<<<<<<< HEAD
 				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-=======
 				<string key="27.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -568,11 +550,8 @@
 						<string key="audioesPage">UIPageControl</string>
 						<string key="endTime">UILabel</string>
 						<string key="insertCount">UILabel</string>
-<<<<<<< HEAD
 						<string key="photoesPage">UIPageControl</string>
-=======
 						<string key="scrollView">UIScrollView</string>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 						<string key="startTime">UILabel</string>
 						<string key="videosPage">UIPageControl</string>
 					</dictionary>
@@ -593,15 +572,12 @@
 							<string key="name">insertCount</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-<<<<<<< HEAD
 						<object class="IBToOneOutletInfo" key="photoesPage">
 							<string key="name">photoesPage</string>
 							<string key="candidateClassName">UIPageControl</string>
-=======
 						<object class="IBToOneOutletInfo" key="scrollView">
 							<string key="name">scrollView</string>
 							<string key="candidateClassName">UIScrollView</string>
->>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 						</object>
 						<object class="IBToOneOutletInfo" key="startTime">
 							<string key="name">startTime</string>
