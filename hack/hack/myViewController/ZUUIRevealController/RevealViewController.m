@@ -7,6 +7,8 @@
 //
 
 #import "RevealViewController.h"
+#import "LeftViewController.h"
+#import "FrontViewController.h"
 
 @interface RevealViewController ()<ZUUIRevealControllerDelegate>
 
@@ -24,7 +26,7 @@
 }
 - (id)initWithFrontViewController:(UIViewController *)aFrontViewController rearViewController:(UIViewController *)aBackViewController
 {
-//	self = [super initWithFrontViewController:aFrontViewController rearViewController:aBackViewController];
+	self = [super initWithFrontViewController:aFrontViewController rearViewController:aBackViewController];
 	
 	if (nil != self)
 	{

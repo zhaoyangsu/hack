@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "RevealViewController.h"
+#import "LeftViewController.h"
+#import "FrontViewController.h"
 
 @implementation AppDelegate
 
@@ -16,8 +19,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+//    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    
+    LeftViewController *left = [[LeftViewController alloc]init];
+    FrontViewController *front = [[FrontViewController alloc]init];
+    RevealViewController *reveal =  [[RevealViewController alloc]initWithFrontViewController:[[UINavigationController alloc]initWithRootViewController: front] rearViewController:[[UINavigationController alloc]initWithRootViewController:left]];
+    self.viewController = reveal;
+    self.window.rootViewController = reveal;
     [self.window makeKeyAndVisible];
     return YES;
 }
