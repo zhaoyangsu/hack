@@ -63,6 +63,9 @@
 		D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8927745179A776F0099C99A /* 20115201212718777801.jpg */; };
 		D89277B4179AA5B60099C99A /* IHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B3179AA5B60099C99A /* IHUser.m */; };
 		D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B6179AA5CE0099C99A /* IHActionType.m */; };
+		D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B9179AC7EB0099C99A /* actionCreateViewController.m */; };
+		D89277BC179ACE350099C99A /* actionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89277BB179ACE340099C99A /* actionCreateViewController.xib */; };
+		D89277BE179AD60F0099C99A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89277BD179AD60E0099C99A /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +196,10 @@
 		D89277B3179AA5B60099C99A /* IHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHUser.m; path = myModel/IHUser.m; sourceTree = "<group>"; };
 		D89277B5179AA5CE0099C99A /* IHActionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHActionType.h; path = myModel/IHActionType.h; sourceTree = "<group>"; };
 		D89277B6179AA5CE0099C99A /* IHActionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHActionType.m; path = myModel/IHActionType.m; sourceTree = "<group>"; };
+		D89277B8179AC7EB0099C99A /* actionCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actionCreateViewController.h; sourceTree = "<group>"; };
+		D89277B9179AC7EB0099C99A /* actionCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = actionCreateViewController.m; sourceTree = "<group>"; };
+		D89277BB179ACE340099C99A /* actionCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = actionCreateViewController.xib; sourceTree = "<group>"; };
+		D89277BD179AD60E0099C99A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89277BE179AD60F0099C99A /* MediaPlayer.framework in Frameworks */,
 				4CF4D418179A8ABE003118C6 /* CoreLocation.framework in Frameworks */,
 				907B0F55179A4287009EE2D9 /* CoreGraphics.framework in Frameworks */,
 				4CF4D416179A8A9A003118C6 /* OpenGLES.framework in Frameworks */,
@@ -274,6 +282,7 @@
 		907B0F44179A4287009EE2D9 = {
 			isa = PBXGroup;
 			children = (
+				D89277BD179AD60E0099C99A /* MediaPlayer.framework */,
 				4CF4D417179A8ABE003118C6 /* CoreLocation.framework */,
 				4CF4D415179A8A9A003118C6 /* OpenGLES.framework */,
 				4CF4D413179A8A8C003118C6 /* QuartzCore.framework */,
@@ -483,6 +492,9 @@
 				4CF4D40E179A8888003118C6 /* locationViewController.h */,
 				4CF4D40F179A8888003118C6 /* locationViewController.mm */,
 				4CF4D410179A8888003118C6 /* locationViewController.xib */,
+				D89277B8179AC7EB0099C99A /* actionCreateViewController.h */,
+				D89277B9179AC7EB0099C99A /* actionCreateViewController.m */,
+				D89277BB179ACE340099C99A /* actionCreateViewController.xib */,
 			);
 			path = myViewController;
 			sourceTree = "<group>";
@@ -547,6 +559,7 @@
 				D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */,
 				4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */,
 				90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */,
+				D89277BC179ACE350099C99A /* actionCreateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +605,7 @@
 				4CF4D411179A8888003118C6 /* locationViewController.mm in Sources */,
 				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
 				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
+				D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

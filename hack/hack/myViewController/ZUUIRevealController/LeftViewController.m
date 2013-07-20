@@ -8,6 +8,9 @@
 
 #import "LeftViewController.h"
 #import "locationViewController.h"
+
+#define LABELTITLETAG 200
+
 @interface LeftViewController ()
 
 @end
@@ -27,23 +30,59 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
-    [self.view addSubview:self.tableView];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn setFrame:CGRectMake(0, 0, 50, 50)];
-    [btn addTarget:self action:@selector(location) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    userPhotoView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 50, 90, 90)];
+    userPhotoView.image = [UIImage imageNamed:@"00151816.jpg"];
+    [self.view addSubview:userPhotoView];
+    
+    self.dataSource = [[NSMutableArray alloc] initWithObjects:@"个人信息", @"我的朋友",@"我的活动",@"设置", nil];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2)];
+    self.tableView.delegate = self;
+    self.tableView.scrollEnabled = NO;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.view setBackgroundColor:[UIColor grayColor]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-#pragma mark - locate
-- (void)location
+#pragma mark - UITableView methods
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    locationViewController *loc = [[locationViewController alloc]initWithNibName:@"locationViewController" bundle:nil];
-    [self presentModalViewController:loc animated:YES];
+    CGFloat height = 47;
+    return height;
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *reuseableId = @"tableViewCell";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseableId];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseableId];
+        UILabel *textLab = [[UILabel alloc] initWithFrame:cell.contentView.frame];
+        textLab.font = [UIFont systemFontOfSize:16];
+        [textLab setTextColor:[UIColor lightGrayColor]];
+        textLab.tag = LABELTITLETAG;
+        [cell.contentView addSubview:textLab];
+    }
+    UILabel *textLab = (UILabel *)[cell.contentView viewWithTag:LABELTITLETAG];
+    textLab.text = [self.dataSource objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
 @end

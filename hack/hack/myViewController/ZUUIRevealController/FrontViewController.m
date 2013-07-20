@@ -8,6 +8,7 @@
 
 #import "FrontViewController.h"
 #import "RevealViewController.h"
+#import "actionCreateViewController.h"
 
 @interface FrontViewController ()
 
@@ -33,7 +34,6 @@
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
 		
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-        
 	}
 }
 
