@@ -8,7 +8,11 @@
 
 #import "FrontViewController.h"
 #import "RevealViewController.h"
+<<<<<<< HEAD
 #import "NaviPopMenuView.h"
+=======
+#import "actionCreateViewController.h"
+>>>>>>> d90b76c659111ebd0d552ea4c00f273f87707c01
 
 typedef enum
 {
@@ -82,8 +86,11 @@ ViewType;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
 
     
+=======
+>>>>>>> d90b76c659111ebd0d552ea4c00f273f87707c01
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +98,7 @@ ViewType;
     [super didReceiveMemoryWarning];
 }
 
+<<<<<<< HEAD
 
 - (void)changeView:(UISegmentedControl *)sender
 {
@@ -112,6 +120,13 @@ ViewType;
     }
 }
 
+=======
+#pragma mark - custom methods
+-(void)selectAdapter
+{
+    
+}
+>>>>>>> d90b76c659111ebd0d552ea4c00f273f87707c01
 
 - (void)showManuList
 {

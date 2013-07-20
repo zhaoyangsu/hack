@@ -730,7 +730,7 @@
 	 */
 	UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.frontView.bounds];
 	self.frontView.layer.masksToBounds = NO;
-	self.frontView.layer.shadowColor = [UIColor blackColor].CGColor;
+	self.frontView.layer.shadowColor = [UIColor whiteColor].CGColor;
 	self.frontView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
 	self.frontView.layer.shadowOpacity = 1.0f;
 	self.frontView.layer.shadowRadius = self.frontViewShadowRadius;

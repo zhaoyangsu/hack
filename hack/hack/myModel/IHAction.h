@@ -15,6 +15,8 @@
 {
     IHActionType *type;
     IHUser *leaderUser;
+    
+    NSString *actionName;
     NSString *actionHeaderPhoto;
     NSString *actionTip;
     NSString *actionPosition;
@@ -35,6 +37,7 @@
 @property (nonatomic,retain) IHActionType *type;
 @property (nonatomic,retain) IHUser *leaderUser;
 
+@property (nonatomic,retain) NSString *actionName;
 @property (nonatomic,retain) NSString *actionHeaderPhoto;
 @property (nonatomic,retain) NSString *actionTip;
 @property (nonatomic,retain) NSString *actionPosition;
