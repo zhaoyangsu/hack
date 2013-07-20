@@ -18,6 +18,9 @@
 		907B0F67179A4287009EE2D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 907B0F66179A4287009EE2D9 /* Default-568h@2x.png */; };
 		907B0F6A179A4287009EE2D9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F69179A4287009EE2D9 /* ViewController.m */; };
 		907B0F6D179A4287009EE2D9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907B0F6B179A4287009EE2D9 /* ViewController.xib */; };
+		907B0F7D179A6EA7009EE2D9 /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F7C179A6EA7009EE2D9 /* ZUUIRevealController.m */; };
+		907B0F80179A6F99009EE2D9 /* RevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F7F179A6F99009EE2D9 /* RevealViewController.m */; };
+		907B0F83179A7109009EE2D9 /* FrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F82179A7109009EE2D9 /* FrontViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,12 @@
 		907B0F68179A4287009EE2D9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		907B0F69179A4287009EE2D9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		907B0F6C179A4287009EE2D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		907B0F7B179A6EA7009EE2D9 /* ZUUIRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUUIRevealController.h; sourceTree = "<group>"; };
+		907B0F7C179A6EA7009EE2D9 /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
+		907B0F7E179A6F99009EE2D9 /* RevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealViewController.h; sourceTree = "<group>"; };
+		907B0F7F179A6F99009EE2D9 /* RevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealViewController.m; sourceTree = "<group>"; };
+		907B0F81179A7109009EE2D9 /* FrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontViewController.h; sourceTree = "<group>"; };
+		907B0F82179A7109009EE2D9 /* FrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +92,7 @@
 		907B0F56179A4287009EE2D9 /* hack */ = {
 			isa = PBXGroup;
 			children = (
+				907B0F78179A6E64009EE2D9 /* Class */,
 				907B0F5F179A4287009EE2D9 /* AppDelegate.h */,
 				907B0F60179A4287009EE2D9 /* AppDelegate.m */,
 				907B0F68179A4287009EE2D9 /* ViewController.h */,
@@ -105,6 +115,27 @@
 				907B0F66179A4287009EE2D9 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		907B0F78179A6E64009EE2D9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				907B0F79179A6E64009EE2D9 /* ZUUIRevealController */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		907B0F79179A6E64009EE2D9 /* ZUUIRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				907B0F7B179A6EA7009EE2D9 /* ZUUIRevealController.h */,
+				907B0F7C179A6EA7009EE2D9 /* ZUUIRevealController.m */,
+				907B0F7E179A6F99009EE2D9 /* RevealViewController.h */,
+				907B0F7F179A6F99009EE2D9 /* RevealViewController.m */,
+				907B0F81179A7109009EE2D9 /* FrontViewController.h */,
+				907B0F82179A7109009EE2D9 /* FrontViewController.m */,
+			);
+			path = ZUUIRevealController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +207,9 @@
 				907B0F5D179A4287009EE2D9 /* main.m in Sources */,
 				907B0F61179A4287009EE2D9 /* AppDelegate.m in Sources */,
 				907B0F6A179A4287009EE2D9 /* ViewController.m in Sources */,
+				907B0F7D179A6EA7009EE2D9 /* ZUUIRevealController.m in Sources */,
+				907B0F80179A6F99009EE2D9 /* RevealViewController.m in Sources */,
+				907B0F83179A7109009EE2D9 /* FrontViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +332,7 @@
 				907B0F72179A4287009EE2D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
