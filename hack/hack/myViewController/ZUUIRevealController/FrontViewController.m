@@ -33,6 +33,7 @@ ViewType;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        self.tabBar.hidden = YES;
     }
     return self;
 }
