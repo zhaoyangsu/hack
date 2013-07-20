@@ -87,10 +87,6 @@
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn setFrame:CGRectMake(0, 0, 50, 50)];
-    [btn addTarget:self action:@selector(toCurrentLocation) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
     _search = [[BMKSearch alloc]init];

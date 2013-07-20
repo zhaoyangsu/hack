@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface actionTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *actionsArray;
+}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "actionTableViewController.h"
 #import "IHActionTableViewCell.h"
+#import "detailViewController.h"
 
 @interface actionTableViewController ()
 
@@ -27,12 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITableView *actionTable = [[UITableView alloc] initWithFrame:self.view.frame];
-    actionTable.tableHeaderView = nil;
-    actionTable.delegate = self;
-    actionTable.dataSource = self;
-    [self.view addSubview:actionTable];
-    
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -81,7 +76,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    IHAction *selectAction = (IHAction *)[actionsArray objectAtIndex:indexPath.row];
+    detailViewController *detailVC = [[detailViewController alloc] initWithAction:selectAction];
 }
 
 @end

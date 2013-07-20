@@ -71,6 +71,8 @@
 		D89277BC179ACE350099C99A /* actionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89277BB179ACE340099C99A /* actionCreateViewController.xib */; };
 		D89277BE179AD60F0099C99A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89277BD179AD60E0099C99A /* MediaPlayer.framework */; };
 		D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C0179AE4890099C99A /* actionTableViewController.m */; };
+		D89277C4179AFFFB0099C99A /* IHMovieImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */; };
+		D89277C7179B001C0099C99A /* IHMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C6179B001C0099C99A /* IHMovie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,10 @@
 		D89277BD179AD60E0099C99A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D89277BF179AE4880099C99A /* actionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actionTableViewController.h; sourceTree = "<group>"; };
 		D89277C0179AE4890099C99A /* actionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = actionTableViewController.m; sourceTree = "<group>"; };
+		D89277C2179AFFF90099C99A /* IHMovieImageBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHMovieImageBtn.h; path = IHView/IHMovieImageBtn.h; sourceTree = "<group>"; };
+		D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovieImageBtn.m; path = IHView/IHMovieImageBtn.m; sourceTree = "<group>"; };
+		D89277C5179B001C0099C99A /* IHMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHMovie.h; path = myModel/IHMovie.h; sourceTree = "<group>"; };
+		D89277C6179B001C0099C99A /* IHMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovie.m; path = myModel/IHMovie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +485,8 @@
 				D892773B179A6BB00099C99A /* IHActionTableViewCell.m */,
 				90B4CB75179ACD2A001BD25C /* NaviPopMenuView.h */,
 				90B4CB76179ACD2A001BD25C /* NaviPopMenuView.m */,
+				D89277C2179AFFF90099C99A /* IHMovieImageBtn.h */,
+				D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */,
 			);
 			name = myView;
 			sourceTree = "<group>";
@@ -492,6 +500,8 @@
 				D89277B3179AA5B60099C99A /* IHUser.m */,
 				D89277B5179AA5CE0099C99A /* IHActionType.h */,
 				D89277B6179AA5CE0099C99A /* IHActionType.m */,
+				D89277C5179B001C0099C99A /* IHMovie.h */,
+				D89277C6179B001C0099C99A /* IHMovie.m */,
 			);
 			name = myModel;
 			sourceTree = "<group>";
@@ -635,6 +645,8 @@
 				90B4CB77179ACD2A001BD25C /* NaviPopMenuView.m in Sources */,
 				D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */,
 				D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */,
+				D89277C4179AFFFB0099C99A /* IHMovieImageBtn.m in Sources */,
+				D89277C7179B001C0099C99A /* IHMovie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

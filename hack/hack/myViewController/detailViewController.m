@@ -5,18 +5,25 @@
 //  Created by caoliang on 13-7-20.
 //  Copyright (c) 2013年 ZhaoyangSu. All rights reserved.
 //
-#import "IHAction.h"
 #import "detailViewController.h"
+#import "IHMovieImageBtn.h"
 
 @interface detailViewController ()
 
 @end
 
 @implementation detailViewController
+@synthesize detailAction;
+
 @synthesize actionName = _actionName;
 @synthesize startTime = _startTime;
 @synthesize endTime = _endTime;
 @synthesize insertCount = _insertCount;
+
+@synthesize photoesPage;
+@synthesize audioesPage;
+@synthesize videosPage;
+
 @synthesize photoArr = _photoArr;
 @synthesize audioArr = _audioArr;
 @synthesize videoArr = _videoArr;
@@ -25,6 +32,7 @@
 {
     self = [super initWithNibName:@"detailViewController" bundle:nil];
     if (self) {
+        self.detailAction = aAction;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat : @"yyyy年M月d日 H点m分"];
         
@@ -32,6 +40,11 @@
         _startTime.text = [formatter stringFromDate:aAction.startTime];
         _endTime.text = [formatter stringFromDate:aAction.endTime];
         _insertCount = [NSString stringWithFormat:@"%d",aAction.insterNum ];
+        
+        [videosPage setNumberOfPages:2];
+        [videosPage setCurrentPage:0];
+        [videosPage addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+        
         _photoArr = aAction.photoes;
         _audioArr = aAction.audioes;
         _videoArr = aAction.videos;
@@ -52,6 +65,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning
