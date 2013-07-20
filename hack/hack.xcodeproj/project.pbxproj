@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CF4D40C179A8843003118C6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D409179A8843003118C6 /* libbaidumapapi.a */; };
-		4CF4D40D179A8843003118C6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D40B179A8843003118C6 /* libbaidumapapi.a */; };
 		4CF4D411179A8888003118C6 /* locationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D40F179A8888003118C6 /* locationViewController.m */; };
 		4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF4D410179A8888003118C6 /* locationViewController.xib */; };
 		4CF4D414179A8A8C003118C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D413179A8A8C003118C6 /* QuartzCore.framework */; };
@@ -29,6 +27,8 @@
 		907B0F8C179A7557009EE2D9 /* RevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F88179A7557009EE2D9 /* RevealViewController.m */; };
 		907B0F8D179A7557009EE2D9 /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F8A179A7557009EE2D9 /* ZUUIRevealController.m */; };
 		907B0F90179A7573009EE2D9 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F8F179A7573009EE2D9 /* LeftViewController.m */; };
+		90B4CB70179A9CE1001BD25C /* iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B4CB6F179A9CE1001BD25C /* iphone.a */; };
+		90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 90B4CB71179AA036001BD25C /* mapapi.bundle */; };
 		D89276B3179A66600099C99A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B2179A66600099C99A /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8927707179A66910099C99A /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B6179A66910099C99A /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8927708179A66910099C99A /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B9179A66910099C99A /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -93,8 +93,6 @@
 		4CF4D404179A8833003118C6 /* BMKTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKTypes.h; sourceTree = "<group>"; };
 		4CF4D405179A8833003118C6 /* BMKUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKUserLocation.h; sourceTree = "<group>"; };
 		4CF4D406179A8833003118C6 /* BMKVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKVersion.h; sourceTree = "<group>"; };
-		4CF4D409179A8843003118C6 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
-		4CF4D40B179A8843003118C6 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		4CF4D40E179A8888003118C6 /* locationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locationViewController.h; sourceTree = "<group>"; };
 		4CF4D40F179A8888003118C6 /* locationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = locationViewController.m; sourceTree = "<group>"; };
 		4CF4D410179A8888003118C6 /* locationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = locationViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +123,8 @@
 		907B0F8A179A7557009EE2D9 /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
 		907B0F8E179A7573009EE2D9 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		907B0F8F179A7573009EE2D9 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		90B4CB6F179A9CE1001BD25C /* iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = iphone.a; sourceTree = "<group>"; };
+		90B4CB71179AA036001BD25C /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		D89276B1179A66600099C99A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D89276B2179A66600099C99A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D89276B5179A66910099C99A /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -205,8 +205,7 @@
 				D892772F179A67000099C99A /* MobileCoreServices.framework in Frameworks */,
 				D892772D179A66F30099C99A /* CFNetwork.framework in Frameworks */,
 				907B0F53179A4287009EE2D9 /* Foundation.framework in Frameworks */,
-				4CF4D40C179A8843003118C6 /* libbaidumapapi.a in Frameworks */,
-				4CF4D40D179A8843003118C6 /* libbaidumapapi.a in Frameworks */,
+				90B4CB70179A9CE1001BD25C /* iphone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,26 +260,9 @@
 		4CF4D407179A8843003118C6 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				4CF4D408179A8843003118C6 /* Release-iphoneos */,
-				4CF4D40A179A8843003118C6 /* Release-iphonesimulator */,
+				90B4CB6F179A9CE1001BD25C /* iphone.a */,
 			);
 			path = libs;
-			sourceTree = "<group>";
-		};
-		4CF4D408179A8843003118C6 /* Release-iphoneos */ = {
-			isa = PBXGroup;
-			children = (
-				4CF4D409179A8843003118C6 /* libbaidumapapi.a */,
-			);
-			path = "Release-iphoneos";
-			sourceTree = "<group>";
-		};
-		4CF4D40A179A8843003118C6 /* Release-iphonesimulator */ = {
-			isa = PBXGroup;
-			children = (
-				4CF4D40B179A8843003118C6 /* libbaidumapapi.a */,
-			);
-			path = "Release-iphonesimulator";
 			sourceTree = "<group>";
 		};
 		907B0F44179A4287009EE2D9 = {
@@ -321,6 +303,7 @@
 		907B0F56179A4287009EE2D9 /* hack */ = {
 			isa = PBXGroup;
 			children = (
+				90B4CB71179AA036001BD25C /* mapapi.bundle */,
 				4CF4D3E8179A8808003118C6 /* baiduMap */,
 				D8927741179A71170099C99A /* images */,
 				D8927742179A71170099C99A /* myViewController */,
@@ -553,6 +536,7 @@
 				D8927744179A714C0099C99A /* 00151816.jpg in Resources */,
 				D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */,
 				4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */,
+				90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,9 +673,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/hack/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/hack/libs/Release-iphonesimulator\"",
+					"\"$(SRCROOT)/hack/libs\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -708,9 +694,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/hack/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/hack/libs/Release-iphonesimulator\"",
+					"\"$(SRCROOT)/hack/libs\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
