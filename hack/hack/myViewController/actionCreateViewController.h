@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class IHAction;
 @interface actionCreateViewController : UIViewController <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     
 }
 
 @property (nonatomic,retain) IBOutlet UIButton *imageBtn;
+
+- (id)initWithAction:(IHAction *)action;
 
 @end

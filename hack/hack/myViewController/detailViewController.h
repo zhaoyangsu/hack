@@ -17,6 +17,7 @@
     UILabel *startTime;
     UILabel *endTime;
     UILabel *insertCount;
+     
     
     UIPageControl *photoesPage;
     UIPageControl *audioesPage;

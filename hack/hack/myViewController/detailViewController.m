@@ -9,6 +9,7 @@
 #import "IHMovieImageBtn.h"
 
 @interface detailViewController ()
+@property(nonatomic,strong)IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -27,6 +28,8 @@
 @synthesize photoArr = _photoArr;
 @synthesize audioArr = _audioArr;
 @synthesize videoArr = _videoArr;
+@synthesize scrollView = _scrollView;
+ 
 #pragma mark - life circle
 - (id)initWithAction:(IHAction *)aAction
 {
@@ -65,9 +68,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+<<<<<<< HEAD
     
+=======
+    [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 600)];
+>>>>>>> 4529e3bb8a1a70f83ca6cd50cb7cf36953031499
 }
+- (void)layoutViews
+{
+    
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

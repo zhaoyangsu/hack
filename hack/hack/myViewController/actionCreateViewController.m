@@ -7,37 +7,74 @@
 //
 
 #import "actionCreateViewController.h"
+#import "IHAction.h"
 
-@interface actionCreateViewController ()
+typedef enum
+{
+    EEditSectionAdd,
+    EEditSectionImage,
+    EEditSectionVideo,
+    EEditSectionDelete,
+    EEditSectionCount,
+}
+EditSection;
+
+
+@interface actionCreateViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL isFullScreen;
+
 }
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) IHAction *oldAction;
+@property (nonatomic, strong) IHAction *commitAction;
 @end
 
 @implementation actionCreateViewController
 @synthesize imageBtn;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (id)init
 {
-    self = [super initWithNibName:@"actionCreateViewController" bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self = [super init])
+    {
+        
     }
     return self;
+}
+
+- (id)initWithAction:(IHAction *)action
+{
+    if (self = [super init])
+    {
+        self.oldAction = action;
+        self.commitAction = [action copy];
+    }
+    return self;
+}
+
+- (BOOL)isCareate
+{
+    if (self.oldAction.itemId == 0)
+    {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     [self.imageBtn addTarget:self action:@selector(chooseImage:) forControlEvents:UIControlEventTouchUpInside];
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - 保存图片至沙盒
 - (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
@@ -178,4 +215,35 @@
     
 }
 
+
+#pragma mark -
+#pragma mark tableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return EEditSectionCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"AddCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (![self isCareate] && indexPath.row == EEditSectionAdd)
+    {
+        return 44.0;
+    }
+    else if([self isCareate] && indexPath.row == EEditSectionAdd)
+    {
+        return 0.0;
+    }
+}
 @end

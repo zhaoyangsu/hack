@@ -10,7 +10,7 @@
 
 @interface IHUser : NSObject
 {
-    NSString *userId;
+    int64_t userId;
     NSString *userName;
     NSString *userPhoto;
     
@@ -20,7 +20,7 @@
     NSMutableArray *createActions;
 }
 
-@property (nonatomic,retain) NSString *userId;
+@property (nonatomic,assign) int64_t userId;
 @property (nonatomic,retain) NSString *userName;
 @property (nonatomic,retain) NSString *userPhoto;
 @property (nonatomic,retain) NSMutableArray *friends;
