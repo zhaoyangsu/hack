@@ -26,19 +26,12 @@ ViewType;
 @interface FrontViewController ()
 @property (nonatomic, strong) UIButton *titleBtn;
 @property (nonatomic, strong) NaviPopMenuView *popMenuView;
+@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
 @end
 
 @implementation FrontViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
 
 
 - (id)init
@@ -53,8 +46,6 @@ ViewType;
 - (void)loadView
 {
     [super loadView];
-    self.tabBar.hidden = YES;
-   
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
@@ -62,8 +53,8 @@ ViewType;
 		
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
-
-
+    
+    
     segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
     segement.selectedSegmentIndex = 0;
     [segement addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
@@ -77,13 +68,25 @@ ViewType;
     self.titleBtn.tag = KTitleViewTag;
     [self.titleBtn addTarget:self action:@selector(showManuList) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = self.titleBtn;
+   
+}
 
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    for (UIViewController *viewController in self.viewControllers)
+    {
+        [viewController removeFromParentViewController];
+    }
+    [self.viewControllers removeAllObjects];
     NSArray *gestureArr = [[NSMutableArray alloc]initWithArray: self.view.gestureRecognizers];
     for (UIGestureRecognizer *gesture in gestureArr)
     {
@@ -91,30 +94,58 @@ ViewType;
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
     locationViewController *locatioVC = [[locationViewController alloc]init];
     [self addChildViewController:locatioVC];
+    [self.viewControllers addObject:locatioVC];
     actionTableViewController *actionVC = [[actionTableViewController alloc]init];
+    [self.viewControllers addObject:actionVC];
     [self addChildViewController:actionVC];
-    self.selectedIndex = 1;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [segement setSelectedSegmentIndex:1];
+    [self.view addSubview:locatioVC.view];
+    _selectedIndex = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex
+{
+    if (_selectedIndex != selectedIndex)
+    {
+        UIViewController *oldController = self.viewControllers[_selectedIndex];
+        switch (selectedIndex)
+        {
+            case EViewTypeMap:
+            {
+                _selectedIndex = selectedIndex;
+                
+                break;
+            }
+            case EViewTypeList:
+            {
+                _selectedIndex = selectedIndex;
+                break;
+            }
+            
+            default:
+                return;
+                break;
+        }
+        UIViewController *newController = self.viewControllers[selectedIndex];
+        newController.view.alpha = 0.0;
+        [self.view addSubview:newController.view];
+        [UIView animateWithDuration:0.3 animations:^{
+            newController.view.alpha = 1.0;
+        } completion:^(BOOL finished) {
+            [oldController.view removeFromSuperview];
+        }];
+    }
 }
 
 
