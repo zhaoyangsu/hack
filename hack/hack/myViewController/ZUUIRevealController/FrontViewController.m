@@ -106,6 +106,7 @@ ViewType;
     self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
     locationViewController *locatioVC = [[locationViewController alloc]init];
     [self addChildViewController:locatioVC];
+    [locatioVC.view setFrame:self.view.bounds];
     [self.viewControllers addObject:locatioVC];
     actionTableViewController *actionVC = [[actionTableViewController alloc]init];
     [self.viewControllers addObject:actionVC];
