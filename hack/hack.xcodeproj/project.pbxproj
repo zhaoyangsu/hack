@@ -509,11 +509,9 @@
 				4CF4D40E179A8888003118C6 /* locationViewController.h */,
 				4CF4D40F179A8888003118C6 /* locationViewController.mm */,
 				4CF4D410179A8888003118C6 /* locationViewController.xib */,
-<<<<<<< HEAD
 				4CF4D419179ACF63003118C6 /* detailViewController.h */,
 				4CF4D41A179ACF63003118C6 /* detailViewController.m */,
 				4CF4D41B179ACF63003118C6 /* detailViewController.xib */,
-=======
 				D89277B8179AC7EB0099C99A /* actionCreateViewController.h */,
 				D89277B9179AC7EB0099C99A /* actionCreateViewController.m */,
 				D89277BB179ACE340099C99A /* actionCreateViewController.xib */,
@@ -628,7 +626,6 @@
 				4CF4D411179A8888003118C6 /* locationViewController.mm in Sources */,
 				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
 				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
-<<<<<<< HEAD
 				4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */,
 				90B4CB77179ACD2A001BD25C /* NaviPopMenuView.m in Sources */,
 				D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */,
