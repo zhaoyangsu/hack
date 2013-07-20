@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FrontViewController :UITabBarController<UITableViewDataSource,UITableViewDelegate>
+@interface FrontViewController :UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     UISegmentedControl *segement;
 }

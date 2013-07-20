@@ -28,9 +28,14 @@
 {
     [super viewDidLoad];
     UITableView *actionTable = [[UITableView alloc] initWithFrame:self.view.frame];
+    actionTable.tableHeaderView = nil;
     actionTable.delegate = self;
     actionTable.dataSource = self;
     [self.view addSubview:actionTable];
+    
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -53,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,8 +74,14 @@
     if (cell == nil)
     {
         cell = [[IHActionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseableId];
+        cell.clipsToBounds = YES;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end
