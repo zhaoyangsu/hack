@@ -61,6 +61,8 @@
 		D892773F179A6C240099C99A /* IHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D892773E179A6C240099C99A /* IHAction.m */; };
 		D8927744179A714C0099C99A /* 00151816.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8927743179A714C0099C99A /* 00151816.jpg */; };
 		D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8927745179A776F0099C99A /* 20115201212718777801.jpg */; };
+		D89277B4179AA5B60099C99A /* IHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B3179AA5B60099C99A /* IHUser.m */; };
+		D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B6179AA5CE0099C99A /* IHActionType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +189,10 @@
 		D892773E179A6C240099C99A /* IHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHAction.m; path = myModel/IHAction.m; sourceTree = "<group>"; };
 		D8927743179A714C0099C99A /* 00151816.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00151816.jpg; sourceTree = "<group>"; };
 		D8927745179A776F0099C99A /* 20115201212718777801.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20115201212718777801.jpg; sourceTree = "<group>"; };
+		D89277B2179AA5B60099C99A /* IHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHUser.h; path = myModel/IHUser.h; sourceTree = "<group>"; };
+		D89277B3179AA5B60099C99A /* IHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHUser.m; path = myModel/IHUser.m; sourceTree = "<group>"; };
+		D89277B5179AA5CE0099C99A /* IHActionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHActionType.h; path = myModel/IHActionType.h; sourceTree = "<group>"; };
+		D89277B6179AA5CE0099C99A /* IHActionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHActionType.m; path = myModel/IHActionType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,6 +459,10 @@
 			children = (
 				D892773D179A6C240099C99A /* IHAction.h */,
 				D892773E179A6C240099C99A /* IHAction.m */,
+				D89277B2179AA5B60099C99A /* IHUser.h */,
+				D89277B3179AA5B60099C99A /* IHUser.m */,
+				D89277B5179AA5CE0099C99A /* IHActionType.h */,
+				D89277B6179AA5CE0099C99A /* IHActionType.m */,
 			);
 			name = myModel;
 			sourceTree = "<group>";
@@ -580,6 +590,8 @@
 				907B0F8D179A7557009EE2D9 /* ZUUIRevealController.m in Sources */,
 				907B0F90179A7573009EE2D9 /* LeftViewController.m in Sources */,
 				4CF4D411179A8888003118C6 /* locationViewController.m in Sources */,
+				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
+				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
