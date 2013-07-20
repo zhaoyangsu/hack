@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IHUser.h"
 
-@interface LeftViewController : UIViewController
+@interface LeftViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+{
+    UIImageView *userPhotoView;
+}
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end

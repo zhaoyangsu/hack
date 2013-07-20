@@ -8,9 +8,21 @@
 
 #import "FrontViewController.h"
 #import "RevealViewController.h"
+#import "NaviPopMenuView.h"
+#import "actionCreateViewController.h"
+
+typedef enum
+{
+    EViewTypeMap,
+    EViewTypeList
+}
+ViewType;
+
+#define KTitleViewTag      10001
 
 @interface FrontViewController ()
-
+@property (nonatomic, strong) UIButton *titleBtn;
+@property (nonatomic, strong) NaviPopMenuView *popMenuView;
 @end
 
 @implementation FrontViewController
@@ -33,8 +45,34 @@
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
 		
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-        
 	}
+
+
+    UISegmentedControl *segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
+    segement.selectedSegmentIndex = 0;
+    [segement addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
+    segement.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:segement];
+    self.navigationItem.rightBarButtonItem = item;
+    
+    self.titleBtn = [[UIButton alloc]initWithFrame:CGRectZero];
+    [self.titleBtn setTitle:@"菜单" forState:UIControlStateNormal];
+    [self.titleBtn sizeToFit];
+    self.titleBtn.tag = KTitleViewTag;
+    [self.titleBtn addTarget:self action:@selector(showManuList) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = self.titleBtn;
+
+
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    NSArray *gestureArr = [[NSMutableArray alloc]initWithArray: self.view.gestureRecognizers];
+    for (UIGestureRecognizer *gesture in gestureArr)
+    {
+        [self.view removeGestureRecognizer:gesture];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,11 +90,52 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - custom methods
--(void)selectAdapter
+
+- (void)changeView:(UISegmentedControl *)sender
 {
-    
+
+    switch (sender.selectedSegmentIndex)
+    {
+        case EViewTypeMap:
+        {
+            NSLog(@"show Map");
+            break;
+        }
+        case EViewTypeList:
+        {
+            NSLog(@"Show List");
+            break;
+        }
+        default:
+            break;
+    }
 }
 
+
+#pragma mark - custom methods
+- (void)showManuList
+{
+    if (!_popMenuView)
+    {
+        NSMutableArray *items = [[NSMutableArray alloc]init];
+        NaviPopMenuItem *item = [[NaviPopMenuItem alloc]initWithTitle:@"test1" block:^{
+            NSLog(@"test1");
+        }];
+        [items addObject:item];
+        NaviPopMenuItem *test2 = [[NaviPopMenuItem alloc]initWithTitle:@"test2" block:^{
+            NSLog(@"test2");
+        }];
+        [items addObject:test2];
+        _popMenuView = [[NaviPopMenuView alloc]initWithItems:items naviHeigth:self.navigationController.navigationBar.frame.size.height];
+    }
+    if (_popMenuView.superview)
+    {
+        [_popMenuView dismissView];
+    }
+    else
+    {
+        [_popMenuView showInView:self.navigationController.view];
+    }
+}
 
 @end
