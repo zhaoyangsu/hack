@@ -8,9 +8,11 @@
 
 #import "actionTableViewController.h"
 #import "IHActionTableViewCell.h"
+#import "IHAction.h"
+#import "actionCreateViewController.h"
 
 @interface actionTableViewController ()
-
+@property (nonatomic, strong) NSMutableArray *dateSeouce;
 @end
 
 @implementation actionTableViewController
@@ -36,6 +38,17 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.dateSeouce = [[NSMutableArray alloc]initWithCapacity:8];
+    for (NSInteger i = 0; i < 8; i++)
+    {
+        IHAction *action = [[IHAction alloc]init];
+        IHUser *user = [[IHUser alloc]init];
+        user.userId = i;
+        user.userPhoto = @"20115201212718777801.jpg";
+        action.leaderUser = user;
+        [self.dateSeouce addObject:action];
+    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,7 +94,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    IHAction *action = self.dateSeouce[indexPath.row];
+    actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:action];
+    [self.navigationController pushViewController:actionVC animated:YES];
 }
 
 @end

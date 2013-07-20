@@ -27,6 +27,7 @@ BMKMapManager* _mapManager;
     self.viewController = reveal;
     self.window.rootViewController = reveal;
     [self.window makeKeyAndVisible];
+    
     // 要使用百度地图，请先启动BaiduMapManager
 	_mapManager = [[BMKMapManager alloc]init];
 	BOOL ret = [_mapManager start:@"78D85C187657D438E35980DDAB52A0EFF061AB65" generalDelegate:self];

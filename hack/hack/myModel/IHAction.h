@@ -10,32 +10,33 @@
 #import "IHUser.h"
 #import "IHActionType.h"
 
-@interface IHAction : NSObject
+@interface IHAction : NSObject<NSCopying>
 
 {
-    IHActionType *type;
-    IHUser *leaderUser;
-    
-    NSString *actionName;
-    NSString *actionHeaderPhoto;
-    NSString *actionTip;
-    NSString *actionPosition;
-    NSMutableDictionary *positionDic;
-    
-    NSMutableArray *photoes;
-    NSMutableArray *audioes;
-    NSMutableArray *vieos;
-    
-    NSInteger addedNum;
-    NSInteger insterNum;
-    
-    NSDate *createTime;
-    NSDate *startTime;
-    NSDate *endTime;
+//    IHActionType *type;
+//    IHUser *leaderUser;
+//    
+//    NSString *actionName;
+//    NSString *actionHeaderPhoto;
+//    NSString *actionTip;
+//    NSString *actionPosition;
+//    NSMutableDictionary *positionDic;
+//    
+//    NSMutableArray *photoes;
+//    NSMutableArray *audioes;
+//    NSMutableArray *vieos;
+//    
+//    NSInteger addedNum;
+//    NSInteger insterNum;
+//    
+//    NSDate *createTime;
+//    NSDate *startTime;
+//    NSDate *endTime;
 }
 
 @property (nonatomic,retain) IHActionType *type;
 @property (nonatomic,retain) IHUser *leaderUser;
+@property (nonatomic,assign) int64_t itemId;
 
 @property (nonatomic,retain) NSString *actionName;
 @property (nonatomic,retain) NSString *actionHeaderPhoto;
@@ -53,4 +54,7 @@
 @property (nonatomic,retain) NSDate *createTime;
 @property (nonatomic,retain) NSDate *startTime;
 @property (nonatomic,retain) NSDate *endTime;
+
+
+- (BOOL)isMine;
 @end
