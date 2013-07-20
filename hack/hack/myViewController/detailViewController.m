@@ -20,6 +20,7 @@
 @synthesize photoArr = _photoArr;
 @synthesize audioArr = _audioArr;
 @synthesize videoArr = _videoArr;
+#pragma mark - life circle
 - (id)initWithAction:(IHAction *)aAction
 {
     self = [super initWithNibName:@"detailViewController" bundle:nil];
@@ -28,10 +29,13 @@
         [formatter setDateFormat : @"yyyy年M月d日 H点m分"];
         
         _actionName.text = aAction.actionTip;
-//        _startTime.text = [formatter stringFromDate:dateNow];
-//        _endTime.text = [formatter stringFromDate:dateNow];
-        _insertCount = [NSString stringWithFormat:@"%d",aAction.insterNum ]; 
-   // Custom initialization
+        _startTime.text = [formatter stringFromDate:aAction.startTime];
+        _endTime.text = [formatter stringFromDate:aAction.endTime];
+        _insertCount = [NSString stringWithFormat:@"%d",aAction.insterNum ];
+        _photoArr = aAction.photoes;
+        _audioArr = aAction.audioes;
+        _videoArr = aAction.videos;
+       // Custom initialization
     }
     return self;
 }

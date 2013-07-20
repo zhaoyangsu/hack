@@ -29,9 +29,9 @@
     NSInteger addedNum;
     NSInteger insterNum;
     
-    NSTimer *createTime;
-    NSTimer *startTime;
-    NSTimer *endTime;
+    NSDate *createTime;
+    NSDate *startTime;
+    NSDate *endTime;
 }
 
 @property (nonatomic,retain) IHActionType *type;
@@ -50,7 +50,7 @@
 @property (nonatomic,assign) NSInteger addedNum;
 @property (nonatomic,assign) NSInteger insterNum;
 
-@property (nonatomic,retain) NSTimer *createTime;
-@property (nonatomic,retain) NSTimer *startTime;
-@property (nonatomic,retain) NSTimer *endTime;
+@property (nonatomic,retain) NSDate *createTime;
+@property (nonatomic,retain) NSDate *startTime;
+@property (nonatomic,retain) NSDate *endTime;
 @end

@@ -48,6 +48,10 @@ ViewType;
     [super loadView];
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
+    self.tabBar.hidden = YES;
+   
+//    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
+//	{
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
 		
@@ -55,6 +59,9 @@ ViewType;
 	}
     
     
+//	}
+
+
     segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
     segement.selectedSegmentIndex = 0;
     [segement addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
