@@ -50,9 +50,10 @@
 		D8927731179A67080099C99A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927730179A67080099C99A /* SystemConfiguration.framework */; };
 		D8927733179A671C0099C99A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927732179A671C0099C99A /* libxml2.dylib */; };
 		D8927735179A67230099C99A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8927734179A67230099C99A /* libz.dylib */; };
-		D8927738179A6B490099C99A /* IHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8927737179A6B490099C99A /* IHTableView.m */; };
 		D892773C179A6BB00099C99A /* IHActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D892773B179A6BB00099C99A /* IHActionTableViewCell.m */; };
 		D892773F179A6C240099C99A /* IHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D892773E179A6C240099C99A /* IHAction.m */; };
+		D8927744179A714C0099C99A /* 00151816.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8927743179A714C0099C99A /* 00151816.jpg */; };
+		D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8927745179A776F0099C99A /* 20115201212718777801.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,12 +137,12 @@
 		D8927730179A67080099C99A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8927732179A671C0099C99A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D8927734179A67230099C99A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		D8927736179A6B490099C99A /* IHTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHTableView.h; path = IHView/IHTableView.h; sourceTree = "<group>"; };
-		D8927737179A6B490099C99A /* IHTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHTableView.m; path = IHView/IHTableView.m; sourceTree = "<group>"; };
 		D892773A179A6BB00099C99A /* IHActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHActionTableViewCell.h; path = IHView/IHActionTableViewCell.h; sourceTree = "<group>"; };
 		D892773B179A6BB00099C99A /* IHActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHActionTableViewCell.m; path = IHView/IHActionTableViewCell.m; sourceTree = "<group>"; };
 		D892773D179A6C240099C99A /* IHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHAction.h; path = myModel/IHAction.h; sourceTree = "<group>"; };
 		D892773E179A6C240099C99A /* IHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHAction.m; path = myModel/IHAction.m; sourceTree = "<group>"; };
+		D8927743179A714C0099C99A /* 00151816.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00151816.jpg; sourceTree = "<group>"; };
+		D8927745179A776F0099C99A /* 20115201212718777801.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20115201212718777801.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,8 +336,6 @@
 		D8927739179A6B500099C99A /* myView */ = {
 			isa = PBXGroup;
 			children = (
-				D8927736179A6B490099C99A /* IHTableView.h */,
-				D8927737179A6B490099C99A /* IHTableView.m */,
 				D892773A179A6BB00099C99A /* IHActionTableViewCell.h */,
 				D892773B179A6BB00099C99A /* IHActionTableViewCell.m */,
 			);
@@ -355,6 +354,8 @@
 		D8927741179A71170099C99A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D8927745179A776F0099C99A /* 20115201212718777801.jpg */,
+				D8927743179A714C0099C99A /* 00151816.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -423,6 +424,8 @@
 				907B0F65179A4287009EE2D9 /* Default@2x.png in Resources */,
 				907B0F67179A4287009EE2D9 /* Default-568h@2x.png in Resources */,
 				907B0F6D179A4287009EE2D9 /* ViewController.xib in Resources */,
+				D8927744179A714C0099C99A /* 00151816.jpg in Resources */,
+				D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +462,6 @@
 				D892771A179A66910099C99A /* ASIS3ObjectRequest.m in Sources */,
 				D892771B179A66910099C99A /* ASIS3Request.m in Sources */,
 				D892771C179A66910099C99A /* ASIS3ServiceRequest.m in Sources */,
-				D8927738179A6B490099C99A /* IHTableView.m in Sources */,
 				D892773C179A6BB00099C99A /* IHActionTableViewCell.m in Sources */,
 				D892773F179A6C240099C99A /* IHAction.m in Sources */,
 				907B0F8B179A7557009EE2D9 /* FrontViewController.m in Sources */,
