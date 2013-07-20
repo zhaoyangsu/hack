@@ -9,5 +9,9 @@
 #import "IHAction.h"
 
 @implementation IHAction
+@synthesize type,leaderUser,actionHeaderPhoto,actionTip,actionPosition,positionDic;
+@synthesize photoes,audioes,videos;
+@synthesize addedNum,insterNum;
+@synthesize createTime,startTime,endTime;
 
 @end

@@ -7,6 +7,47 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IHUser.h"
+#import "IHActionType.h"
 
 @interface IHAction : NSObject
+
+{
+    IHActionType *type;
+    IHUser *leaderUser;
+    NSString *actionHeaderPhoto;
+    NSString *actionTip;
+    NSString *actionPosition;
+    NSMutableDictionary *positionDic;
+    
+    NSMutableArray *photoes;
+    NSMutableArray *audioes;
+    NSMutableArray *vieos;
+    
+    NSInteger addedNum;
+    NSInteger insterNum;
+    
+    NSTimer *createTime;
+    NSTimer *startTime;
+    NSTimer *endTime;
+}
+
+@property (nonatomic,retain) IHActionType *type;
+@property (nonatomic,retain) IHUser *leaderUser;
+
+@property (nonatomic,retain) NSString *actionHeaderPhoto;
+@property (nonatomic,retain) NSString *actionTip;
+@property (nonatomic,retain) NSString *actionPosition;
+@property (nonatomic,retain) NSMutableDictionary *positionDic;
+
+@property (nonatomic,retain) NSMutableArray *photoes;
+@property (nonatomic,retain) NSMutableArray *audioes;
+@property (nonatomic,retain) NSMutableArray *videos;
+
+@property (nonatomic,assign) NSInteger addedNum;
+@property (nonatomic,assign) NSInteger insterNum;
+
+@property (nonatomic,retain) NSTimer *createTime;
+@property (nonatomic,retain) NSTimer *startTime;
+@property (nonatomic,retain) NSTimer *endTime;
 @end
