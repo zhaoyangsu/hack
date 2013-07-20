@@ -48,7 +48,7 @@ ViewType;
     [super loadView];
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
-    self.tabBar.hidden = YES;
+//    self.tabBar.hidden = YES;
    
 //    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 //	{
@@ -107,6 +107,7 @@ ViewType;
     self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
     locationViewController *locatioVC = [[locationViewController alloc]init];
     [self addChildViewController:locatioVC];
+    [locatioVC.view setFrame:self.view.bounds];
     [self.viewControllers addObject:locatioVC];
     actionTableViewController *actionVC = [[actionTableViewController alloc]init];
     [self.viewControllers addObject:actionVC];

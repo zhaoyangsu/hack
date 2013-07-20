@@ -65,12 +65,13 @@
 
 @interface locationViewController ()
 @property (nonatomic, assign) BOOL clickAnnotation;
-
+@property (nonatomic,strong)UIView *toolBarView;
 @end
 
 @implementation locationViewController
 @synthesize mapView = _mapView;
 @synthesize userLocation = _userLocation;
+@synthesize toolBarView = _toolBarView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -87,14 +88,30 @@
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn setFrame:CGRectMake(0, 0, 50, 50)];
-    [btn addTarget:self action:@selector(toCurrentLocation) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+ 
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
     _search = [[BMKSearch alloc]init];
     _search.delegate = self;
+    
+    _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 50)];
+    [_toolBarView setBackgroundColor:[UIColor whiteColor]];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btn setFrame:CGRectMake(10, 10, 50, 30)];
+    [btn setTitle:@"定位" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(toCurrentLocation) forControlEvents:UIControlEventTouchUpInside];
+    [_toolBarView addSubview:btn];
+    
+    UIButton *toDesbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [toDesbtn setFrame:CGRectMake(self.view.bounds.size.width/2.0-30, 10, 60, 30)];
+    [toDesbtn setTitle:@"到这儿去" forState:UIControlStateNormal];
+    [toDesbtn addTarget:self action:@selector(toDestication) forControlEvents:UIControlEventTouchUpInside];
+    [_toolBarView addSubview:toDesbtn];
+    
+    _toolBarView.alpha = 0.7;
+    [self.view addSubview:_toolBarView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,10 +126,22 @@
 #pragma mark -
 - (void)toCurrentLocation
 {
-    //[_mapView setCenterCoordinate:_userLocation.location.coordinate animated:YES ] ;
-    [self  goToDetail:nil];
+    [_mapView setCenterCoordinate:_userLocation.location.coordinate animated:YES ] ;
+//    [self  goToDetail:nil];
     
 }
+- (void)toDestication
+{
+    [self goToDetail:nil];
+}
+- (void)displayToolBar
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        [_toolBarView setFrame:CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50)];
+    }];
+
+}
+#pragma mark - 
 - (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)aUserLocation
 {
     _userLocation = aUserLocation;
@@ -140,6 +169,9 @@
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
 {
     endPoint = view.annotation.coordinate;
+     [_mapView setCenterCoordinate:endPoint animated:YES ] ;
+    [self performSelector:@selector(displayToolBar) withObject:nil afterDelay:0];
+//   [self displayToolBar];
     self.clickAnnotation = YES;
 }
 
