@@ -11,6 +11,7 @@
 #import "IHActionType.h"
 
 @interface IHAction : NSObject
+
 {
     IHActionType *type;
     IHUser *leaderUser;
@@ -49,5 +50,4 @@
 @property (nonatomic,retain) NSTimer *createTime;
 @property (nonatomic,retain) NSTimer *startTime;
 @property (nonatomic,retain) NSTimer *endTime;
-
 @end
