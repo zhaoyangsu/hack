@@ -70,6 +70,7 @@
 		D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277B9179AC7EB0099C99A /* actionCreateViewController.m */; };
 		D89277BC179ACE350099C99A /* actionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89277BB179ACE340099C99A /* actionCreateViewController.xib */; };
 		D89277BE179AD60F0099C99A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89277BD179AD60E0099C99A /* MediaPlayer.framework */; };
+		D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C0179AE4890099C99A /* actionTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +211,8 @@
 		D89277B9179AC7EB0099C99A /* actionCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = actionCreateViewController.m; sourceTree = "<group>"; };
 		D89277BB179ACE340099C99A /* actionCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = actionCreateViewController.xib; sourceTree = "<group>"; };
 		D89277BD179AD60E0099C99A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D89277BF179AE4880099C99A /* actionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actionTableViewController.h; sourceTree = "<group>"; };
+		D89277C0179AE4890099C99A /* actionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = actionTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +518,8 @@
 				D89277B8179AC7EB0099C99A /* actionCreateViewController.h */,
 				D89277B9179AC7EB0099C99A /* actionCreateViewController.m */,
 				D89277BB179ACE340099C99A /* actionCreateViewController.xib */,
+				D89277BF179AE4880099C99A /* actionTableViewController.h */,
+				D89277C0179AE4890099C99A /* actionTableViewController.m */,
 			);
 			path = myViewController;
 			sourceTree = "<group>";
@@ -629,6 +634,7 @@
 				4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */,
 				90B4CB77179ACD2A001BD25C /* NaviPopMenuView.m in Sources */,
 				D89277BA179AC7EC0099C99A /* actionCreateViewController.m in Sources */,
+				D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
