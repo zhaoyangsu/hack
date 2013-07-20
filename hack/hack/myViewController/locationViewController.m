@@ -11,7 +11,7 @@
 
 @interface locationViewController ()
 @property (nonatomic, assign) BOOL clickAnnotation;
-
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation locationViewController
@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        self.dataSource = [[NSMutableArray alloc]init];
     }
     return self;
 }

@@ -29,6 +29,8 @@
 		907B0F90179A7573009EE2D9 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B0F8F179A7573009EE2D9 /* LeftViewController.m */; };
 		90B4CB70179A9CE1001BD25C /* iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B4CB6F179A9CE1001BD25C /* iphone.a */; };
 		90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 90B4CB71179AA036001BD25C /* mapapi.bundle */; };
+		90B4CB74179AB2DE001BD25C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B4CB73179AB2DE001BD25C /* CoreData.framework */; };
+		90B4CB77179ACD2A001BD25C /* NaviPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4CB76179ACD2A001BD25C /* NaviPopMenuView.m */; };
 		D89276B3179A66600099C99A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B2179A66600099C99A /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8927707179A66910099C99A /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B6179A66910099C99A /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8927708179A66910099C99A /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = D89276B9179A66910099C99A /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -127,6 +129,9 @@
 		907B0F8F179A7573009EE2D9 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		90B4CB6F179A9CE1001BD25C /* iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = iphone.a; sourceTree = "<group>"; };
 		90B4CB71179AA036001BD25C /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		90B4CB73179AB2DE001BD25C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		90B4CB75179ACD2A001BD25C /* NaviPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NaviPopMenuView.h; path = IHView/NaviPopMenuView.h; sourceTree = "<group>"; };
+		90B4CB76179ACD2A001BD25C /* NaviPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NaviPopMenuView.m; path = IHView/NaviPopMenuView.m; sourceTree = "<group>"; };
 		D89276B1179A66600099C99A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D89276B2179A66600099C99A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D89276B5179A66910099C99A /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -200,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B4CB74179AB2DE001BD25C /* CoreData.framework in Frameworks */,
 				4CF4D418179A8ABE003118C6 /* CoreLocation.framework in Frameworks */,
 				907B0F55179A4287009EE2D9 /* CoreGraphics.framework in Frameworks */,
 				4CF4D416179A8A9A003118C6 /* OpenGLES.framework in Frameworks */,
@@ -274,9 +280,6 @@
 		907B0F44179A4287009EE2D9 = {
 			isa = PBXGroup;
 			children = (
-				4CF4D417179A8ABE003118C6 /* CoreLocation.framework */,
-				4CF4D415179A8A9A003118C6 /* OpenGLES.framework */,
-				4CF4D413179A8A8C003118C6 /* QuartzCore.framework */,
 				907B0F56179A4287009EE2D9 /* hack */,
 				907B0F4F179A4287009EE2D9 /* Frameworks */,
 				907B0F4E179A4287009EE2D9 /* Products */,
@@ -294,6 +297,10 @@
 		907B0F4F179A4287009EE2D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90B4CB73179AB2DE001BD25C /* CoreData.framework */,
+				4CF4D417179A8ABE003118C6 /* CoreLocation.framework */,
+				4CF4D415179A8A9A003118C6 /* OpenGLES.framework */,
+				4CF4D413179A8A8C003118C6 /* QuartzCore.framework */,
 				D8927734179A67230099C99A /* libz.dylib */,
 				D8927732179A671C0099C99A /* libxml2.dylib */,
 				D8927730179A67080099C99A /* SystemConfiguration.framework */,
@@ -450,6 +457,8 @@
 			children = (
 				D892773A179A6BB00099C99A /* IHActionTableViewCell.h */,
 				D892773B179A6BB00099C99A /* IHActionTableViewCell.m */,
+				90B4CB75179ACD2A001BD25C /* NaviPopMenuView.h */,
+				90B4CB76179ACD2A001BD25C /* NaviPopMenuView.m */,
 			);
 			name = myView;
 			sourceTree = "<group>";
@@ -592,6 +601,7 @@
 				4CF4D411179A8888003118C6 /* locationViewController.m in Sources */,
 				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
 				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
+				90B4CB77179ACD2A001BD25C /* NaviPopMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
