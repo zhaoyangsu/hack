@@ -7,7 +7,7 @@
 //
 
 #import "LeftViewController.h"
-
+#import "locationViewController.h"
 @interface LeftViewController ()
 
 @end
@@ -29,11 +29,21 @@
     [super viewDidLoad];
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:self.tableView];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btn setFrame:CGRectMake(0, 0, 50, 50)];
+    [btn addTarget:self action:@selector(location) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
+#pragma mark - locate
+- (void)location
+{
+    locationViewController *loc = [[locationViewController alloc]initWithNibName:@"locationViewController" bundle:nil];
+    [self presentModalViewController:loc animated:YES];
+}
 @end
