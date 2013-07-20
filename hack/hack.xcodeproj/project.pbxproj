@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CF4D411179A8888003118C6 /* locationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D40F179A8888003118C6 /* locationViewController.m */; };
+		4CF4D411179A8888003118C6 /* locationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D40F179A8888003118C6 /* locationViewController.mm */; };
 		4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF4D410179A8888003118C6 /* locationViewController.xib */; };
 		4CF4D414179A8A8C003118C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D413179A8A8C003118C6 /* QuartzCore.framework */; };
 		4CF4D416179A8A9A003118C6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D415179A8A9A003118C6 /* OpenGLES.framework */; };
@@ -96,7 +96,7 @@
 		4CF4D405179A8833003118C6 /* BMKUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKUserLocation.h; sourceTree = "<group>"; };
 		4CF4D406179A8833003118C6 /* BMKVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKVersion.h; sourceTree = "<group>"; };
 		4CF4D40E179A8888003118C6 /* locationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locationViewController.h; sourceTree = "<group>"; };
-		4CF4D40F179A8888003118C6 /* locationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = locationViewController.m; sourceTree = "<group>"; };
+		4CF4D40F179A8888003118C6 /* locationViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = locationViewController.mm; sourceTree = "<group>"; };
 		4CF4D410179A8888003118C6 /* locationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = locationViewController.xib; sourceTree = "<group>"; };
 		4CF4D413179A8A8C003118C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4CF4D415179A8A9A003118C6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -481,7 +481,7 @@
 			children = (
 				907B0F84179A7557009EE2D9 /* ZUUIRevealController */,
 				4CF4D40E179A8888003118C6 /* locationViewController.h */,
-				4CF4D40F179A8888003118C6 /* locationViewController.m */,
+				4CF4D40F179A8888003118C6 /* locationViewController.mm */,
 				4CF4D410179A8888003118C6 /* locationViewController.xib */,
 			);
 			path = myViewController;
@@ -589,7 +589,7 @@
 				907B0F8C179A7557009EE2D9 /* RevealViewController.m in Sources */,
 				907B0F8D179A7557009EE2D9 /* ZUUIRevealController.m in Sources */,
 				907B0F90179A7573009EE2D9 /* LeftViewController.m in Sources */,
-				4CF4D411179A8888003118C6 /* locationViewController.m in Sources */,
+				4CF4D411179A8888003118C6 /* locationViewController.mm in Sources */,
 				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
 				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
 			);
