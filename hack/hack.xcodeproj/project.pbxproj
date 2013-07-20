@@ -12,6 +12,8 @@
 		4CF4D414179A8A8C003118C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D413179A8A8C003118C6 /* QuartzCore.framework */; };
 		4CF4D416179A8A9A003118C6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D415179A8A9A003118C6 /* OpenGLES.framework */; };
 		4CF4D418179A8ABE003118C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D417179A8ABE003118C6 /* CoreLocation.framework */; };
+		4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D41A179ACF63003118C6 /* detailViewController.m */; };
+		4CF4D41D179ACF63003118C6 /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF4D41B179ACF63003118C6 /* detailViewController.xib */; };
 		907B0F51179A4287009EE2D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F50179A4287009EE2D9 /* UIKit.framework */; };
 		907B0F53179A4287009EE2D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F52179A4287009EE2D9 /* Foundation.framework */; };
 		907B0F55179A4287009EE2D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F54179A4287009EE2D9 /* CoreGraphics.framework */; };
@@ -101,6 +103,9 @@
 		4CF4D413179A8A8C003118C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4CF4D415179A8A9A003118C6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4CF4D417179A8ABE003118C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4CF4D419179ACF63003118C6 /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		4CF4D41A179ACF63003118C6 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
+		4CF4D41B179ACF63003118C6 /* detailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
 		907B0F4D179A4287009EE2D9 /* hack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907B0F50179A4287009EE2D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		907B0F52179A4287009EE2D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -483,6 +488,9 @@
 				4CF4D40E179A8888003118C6 /* locationViewController.h */,
 				4CF4D40F179A8888003118C6 /* locationViewController.mm */,
 				4CF4D410179A8888003118C6 /* locationViewController.xib */,
+				4CF4D419179ACF63003118C6 /* detailViewController.h */,
+				4CF4D41A179ACF63003118C6 /* detailViewController.m */,
+				4CF4D41B179ACF63003118C6 /* detailViewController.xib */,
 			);
 			path = myViewController;
 			sourceTree = "<group>";
@@ -547,6 +555,7 @@
 				D8927746179A776F0099C99A /* 20115201212718777801.jpg in Resources */,
 				4CF4D412179A8888003118C6 /* locationViewController.xib in Resources */,
 				90B4CB72179AA036001BD25C /* mapapi.bundle in Resources */,
+				4CF4D41D179ACF63003118C6 /* detailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +601,7 @@
 				4CF4D411179A8888003118C6 /* locationViewController.mm in Sources */,
 				D89277B4179AA5B60099C99A /* IHUser.m in Sources */,
 				D89277B7179AA5CE0099C99A /* IHActionType.m in Sources */,
+				4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

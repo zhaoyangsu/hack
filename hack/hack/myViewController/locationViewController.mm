@@ -8,6 +8,8 @@
 
 #import "locationViewController.h"
 #import "IHAction.h"
+#import "detailViewController.h"
+
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
 #define MYBUNDLE [NSBundle bundleWithPath: MYBUNDLE_PATH]
@@ -156,7 +158,11 @@
         self.clickAnnotation = NO;
     }
 }
-
+- (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view
+{
+    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+    [self presentModalViewController:detail animated:YES];
+}
 - (void)goToDetail:(IHAction *)action
 {
     CLLocationCoordinate2D startPt = (CLLocationCoordinate2D){_userLocation.location.coordinate.latitude, _userLocation.location.coordinate.longitude};
