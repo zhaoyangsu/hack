@@ -13,34 +13,45 @@
 {
     IHAction *detailAction;
     
+    UILabel *leaderUserName;
     UILabel *actionName;
-    UILabel *startTime;
-    UILabel *endTime;
+    UILabel *actionTime;
+    UILabel *actionType;
     UILabel *insertCount;
-     
     
-    UIPageControl *photoesPage;
-    UIPageControl *audioesPage;
-    UIPageControl *videosPage;
+    UIImageView *acionImageView;
+    UITextView *actionTip;
+//    
+//    UIPageControl *photoesPage;
+//    UIPageControl *audioesPage;
+//    UIPageControl *videosPage;
     
     NSMutableArray *photoArr;
     NSMutableArray *audioArr;
     NSMutableArray *videoArr;
+    
+    UIButton *addedBtn;
 }
 
 @property (nonatomic,strong) IHAction *detailAction;
+@property (nonatomic,strong) IBOutlet UILabel *leaderUserName;
 @property(nonatomic,strong)IBOutlet UILabel *actionName;
-@property(nonatomic,strong)IBOutlet UILabel *startTime;
-@property(nonatomic,strong)IBOutlet UILabel *endTime;
+@property(nonatomic,strong)IBOutlet UILabel *actionTime;
+@property (nonatomic,strong) IBOutlet UILabel *actionType;
 @property(nonatomic,strong)IBOutlet UILabel *insertCount;
 
-@property (nonatomic,strong) IBOutlet UIPageControl *photoesPage;
-@property (nonatomic,strong) IBOutlet UIPageControl *audioesPage;
-@property (nonatomic,strong) IBOutlet UIPageControl *videosPage;
+@property (nonatomic,strong) IBOutlet UIImageView *actionImageView;
+@property (nonatomic,strong) IBOutlet UITextView *actionTip;
+
+//@property (nonatomic,strong) IBOutlet UIPageControl *photoesPage;
+//@property (nonatomic,strong) IBOutlet UIPageControl *audioesPage;
+//@property (nonatomic,strong) IBOutlet UIPageControl *videosPage;
 
 @property(nonatomic,strong)NSMutableArray *photoArr;
 @property(nonatomic,strong)NSMutableArray *audioArr;
 @property(nonatomic,strong)NSMutableArray *videoArr;
+
+@property (nonatomic,strong) IBOutlet UIButton *addedBtn;
 
 - (id)initWithAction:(IHAction *)aAction;
 

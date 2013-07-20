@@ -9,7 +9,6 @@
 #import "actionTableViewController.h"
 #import "IHActionTableViewCell.h"
 #import "detailViewController.h"
-
 #import "IHAction.h"
 #import "actionCreateViewController.h"
 
@@ -90,11 +89,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     IHAction *selectAction = (IHAction *)[actionsArray objectAtIndex:indexPath.row];
     detailViewController *detailVC = [[detailViewController alloc] initWithAction:selectAction];
     IHAction *action = self.dateSeouce[indexPath.row];
-    actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:action];
+    detailViewController *actionVC = [[detailViewController alloc]initWithAction:action];
     [self.navigationController pushViewController:actionVC animated:YES];
 }
 
