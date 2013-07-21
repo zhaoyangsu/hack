@@ -7,8 +7,8 @@
 //
 #import "detailViewController.h"
 #import "IHMovieImageBtn.h"
-#import "ASIHTTPRequest.h"
 #import "ASINetworkQueue.h"
+#import "JSONKit.h"
 
 @interface detailViewController ()
 @property(nonatomic,strong)IBOutlet UIScrollView *scrollView;
@@ -104,5 +104,18 @@
     [request startAsynchronous];
     [queue addOperation:request];
 }
+
+#pragma mark -
+-(void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSLog(@"%@",request.responseString);
+}
+
+-(void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSString *response = [request responseString];
+    NSArray *responseArray = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONData];
+}
+
 
 @end
