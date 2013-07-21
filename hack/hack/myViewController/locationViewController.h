@@ -14,6 +14,8 @@
     BMKUserLocation *userLocation;
     CLLocationCoordinate2D endPoint;
     BMKSearch* _search;
+    UILabel *localLab;
+    BMKUserLocation *targetPoint;
 }
 @property(nonatomic,strong)BMKMapView *mapView;
 @property(nonatomic,strong)BMKUserLocation *userLocation;

@@ -77,6 +77,10 @@ ViewType;
    
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -114,7 +118,7 @@ ViewType;
     [self addChildViewController:actionVC];
     [locatioVC.view setFrame:self.view.bounds];
     [self.view addSubview:actionVC.view];
-        _selectedIndex = 0;
+        _selectedIndex = segement.selectedSegmentIndex;
     
 }
 
