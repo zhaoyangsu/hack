@@ -73,7 +73,7 @@
 
 @implementation locationViewController
 @synthesize mapView = _mapView;
-@synthesize userLocation = _userLocation;
+//@synthesize userLocation = _userLocation;
 @synthesize toolBarView = _toolBarView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,8 +94,8 @@
 
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
-    _search = [[BMKSearch alloc]init];
-    _search.delegate = self;
+//    _search = [[BMKSearch alloc]init];
+//    _search.delegate = self;
     
     _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 50)];
     [_toolBarView setBackgroundColor:[UIColor whiteColor]];
@@ -111,9 +111,9 @@
     [toDesbtn addTarget:self action:@selector(toDestication) forControlEvents:UIControlEventTouchUpInside];
     [_toolBarView addSubview:toDesbtn];
     
-    localLab = [[UILabel alloc] initWithFrame:CGRectMake(70, 10, self.view.bounds.size.width - 80, 30)];
-    [localLab setBackgroundColor:[UIColor clearColor]];
-    [_toolBarView addSubview:localLab];
+//    localLab = [[UILabel alloc] initWithFrame:CGRectMake(70, 10, self.view.bounds.size.width - 80, 30)];
+//    [localLab setBackgroundColor:[UIColor clearColor]];
+//    [_toolBarView addSubview:localLab];
     
     _toolBarView.alpha = 0.7;
     [self.view addSubview:_toolBarView];
@@ -129,8 +129,11 @@
 {
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
+<<<<<<< HEAD
     [_mapView addAnnotations:self.dataSource];
 
+=======
+>>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -145,9 +148,14 @@
 //    for (IHAction *action in self.dataSource)
 //    {
 //        [_mapView addAnnotation:action];
+<<<<<<< HEAD
 
     [self displayToolBar];
 
+=======
+//    }
+    [self displayToolBar];
+>>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 }
 #pragma mark -
 - (void)toCurrentLocation
@@ -236,12 +244,16 @@
             }
         }];
         
-        [self.navigationController pushViewController:actionVC animated:YES];
-    }
-//    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
-//    [self presentModalViewController:detail animated:YES];
-    
+        [self.frontVC.navigationController pushViewController:actionVC animated:YES];
+//        detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+//        [self presentModalViewController:detail animated:YES];
 
+    }
+    
+<<<<<<< HEAD
+
+=======
+>>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 //    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
 //    [self.navigationController pushViewController:detail animated:YES];
 }

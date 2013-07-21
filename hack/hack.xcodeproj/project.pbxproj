@@ -13,9 +13,9 @@
 		4CF4D416179A8A9A003118C6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D415179A8A9A003118C6 /* OpenGLES.framework */; };
 		4CF4D418179A8ABE003118C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF4D417179A8ABE003118C6 /* CoreLocation.framework */; };
 		4CF4D41C179ACF63003118C6 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D41A179ACF63003118C6 /* detailViewController.m */; };
+		4CF4D420179B50AB003118C6 /* IHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D41F179B50AB003118C6 /* IHUserManager.m */; };
 		90229562179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90229561179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg */; };
 		90229564179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90229563179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg */; };
-		4CF4D420179B50AB003118C6 /* IHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D41F179B50AB003118C6 /* IHUserManager.m */; };
 		9046D00C179AFFA2009460FC /* SystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9046D00B179AFFA2009460FC /* SystemManager.m */; };
 		9046D00F179B4383009460FC /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9046D00E179B4383009460FC /* detailViewController.xib */; };
 		907B0F51179A4287009EE2D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907B0F50179A4287009EE2D9 /* UIKit.framework */; };
@@ -76,6 +76,7 @@
 		D89277C1179AE4890099C99A /* actionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C0179AE4890099C99A /* actionTableViewController.m */; };
 		D89277C4179AFFFB0099C99A /* IHMovieImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */; };
 		D89277C7179B001C0099C99A /* IHMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C6179B001C0099C99A /* IHMovie.m */; };
+		D8C54C5F179B806900CE2912 /* actionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C5E179B806900CE2912 /* actionCreateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,10 +117,10 @@
 		4CF4D417179A8ABE003118C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4CF4D419179ACF63003118C6 /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		4CF4D41A179ACF63003118C6 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
-		90229561179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "STOD%%2X$OQC3P%_~CXE~}A.jpg"; sourceTree = "<group>"; };
-		90229563179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "D9PJ]7CCPN$XW9()1J38@VP.jpg"; sourceTree = "<group>"; };
 		4CF4D41E179B50AB003118C6 /* IHUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHUserManager.h; sourceTree = "<group>"; };
 		4CF4D41F179B50AB003118C6 /* IHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHUserManager.m; sourceTree = "<group>"; };
+		90229561179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "STOD%%2X$OQC3P%_~CXE~}A.jpg"; sourceTree = "<group>"; };
+		90229563179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "D9PJ]7CCPN$XW9()1J38@VP.jpg"; sourceTree = "<group>"; };
 		9046D00A179AFFA2009460FC /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		9046D00B179AFFA2009460FC /* SystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemManager.m; sourceTree = "<group>"; };
 		9046D00D179B005A009460FC /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = Reachability/SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovieImageBtn.m; path = IHView/IHMovieImageBtn.m; sourceTree = "<group>"; };
 		D89277C5179B001C0099C99A /* IHMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHMovie.h; path = myModel/IHMovie.h; sourceTree = "<group>"; };
 		D89277C6179B001C0099C99A /* IHMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovie.m; path = myModel/IHMovie.m; sourceTree = "<group>"; };
+		D8C54C5E179B806900CE2912 /* actionCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = actionCreateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,8 +372,8 @@
 				D89276B4179A66910099C99A /* ASIHttpRequest */,
 				D89276B0179A66600099C99A /* Reachability */,
 				907B0F5F179A4287009EE2D9 /* AppDelegate.h */,
-				9046D00D179B005A009460FC /* SynthesizeSingleton.h */,
 				907B0F60179A4287009EE2D9 /* AppDelegate.mm */,
+				9046D00D179B005A009460FC /* SynthesizeSingleton.h */,
 				907B0F68179A4287009EE2D9 /* ViewController.h */,
 				907B0F69179A4287009EE2D9 /* ViewController.m */,
 				907B0F6B179A4287009EE2D9 /* ViewController.xib */,
@@ -550,6 +552,7 @@
 				4CF4D41A179ACF63003118C6 /* detailViewController.m */,
 				D89277B8179AC7EB0099C99A /* actionCreateViewController.h */,
 				D89277B9179AC7EB0099C99A /* actionCreateViewController.m */,
+				D8C54C5E179B806900CE2912 /* actionCreateViewController.xib */,
 				9046D00E179B4383009460FC /* detailViewController.xib */,
 				D89277BF179AE4880099C99A /* actionTableViewController.h */,
 				D89277C0179AE4890099C99A /* actionTableViewController.m */,
@@ -620,6 +623,7 @@
 				9046D00F179B4383009460FC /* detailViewController.xib in Resources */,
 				90229562179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg in Resources */,
 				90229564179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg in Resources */,
+				D8C54C5F179B806900CE2912 /* actionCreateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

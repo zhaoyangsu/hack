@@ -109,13 +109,14 @@ ViewType;
     [super viewDidAppear:animated];
     self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
     locationViewController *locatioVC = [[locationViewController alloc]init];
-    [self addChildViewController:locatioVC];
+//    [self addChildViewController:locatioVC];
 
     actionTableViewController *actionVC = [[actionTableViewController alloc]init];
     [actionVC.view setFrame:self.view.bounds];
     [self.viewControllers addObject:actionVC];
     [self.viewControllers addObject:locatioVC];
-    [self addChildViewController:actionVC];
+    locatioVC.frontVC = self;
+//    [self addChildViewController:actionVC];
     [locatioVC.view setFrame:self.view.bounds];
     [self.view addSubview:actionVC.view];
         _selectedIndex = segement.selectedSegmentIndex;
