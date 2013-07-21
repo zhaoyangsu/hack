@@ -7,6 +7,8 @@
 //
 #import "detailViewController.h"
 #import "IHMovieImageBtn.h"
+#import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
 
 @interface detailViewController ()
 @property(nonatomic,strong)IBOutlet UIScrollView *scrollView;
@@ -95,7 +97,12 @@
 
 -(void)addAction
 {
-    
+    ASINetworkQueue *queue = [[ASINetworkQueue alloc] init];
+    ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:@"http://actionshare.duapp.com/actionshare/action_join/add.php"]];
+    [request setRequestMethod:@"POST"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    [queue addOperation:request];
 }
 
 @end

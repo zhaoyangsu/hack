@@ -16,9 +16,9 @@ typedef enum
     EEditSectionAdd = 0,
     EEditSectionImage,
     EEditSectionTip,
+    EEditSectionType,
     EEditSectionStartTime,
     EEditSectionEndTime,
-    EEditSectionType,
     EEditSectionDelete,
     EEditSectionCount,
 }
@@ -395,6 +395,7 @@ EditSection;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.tag = EEditSectionType;
             cell.detailTextLabel.text = @"类别";
             
             return cell;
@@ -410,6 +411,7 @@ EditSection;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.tag = EEditSectionStartTime;
             cell.detailTextLabel.text = @"开始时间";
             
             return cell;
@@ -425,6 +427,7 @@ EditSection;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.tag = EEditSectionEndTime;
             cell.detailTextLabel.text = @"结束时间";
             
             return cell;
@@ -456,10 +459,7 @@ EditSection;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.row)
-    {
-            
-    }
+    
 }
 
 
