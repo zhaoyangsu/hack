@@ -9,12 +9,16 @@
 #import "actionCreateViewController.h"
 #import "IHAction.h"
 #import <QuartzCore/QuartzCore.h>
+#import "JSONKit.h"
 
 typedef enum
 {
     EEditSectionAdd = 0,
     EEditSectionImage,
     EEditSectionTip,
+    EEditSectionStartTime,
+    EEditSectionEndTime,
+    EEditSectionType,
     EEditSectionDelete,
     EEditSectionCount,
 }
@@ -41,6 +45,7 @@ EditSection;
 
 @implementation actionCreateViewController
 @synthesize imageBtn;
+@synthesize startTimePicker,endTimePicker,actionTypePicker;
 
 
 - (id)init
@@ -89,6 +94,11 @@ EditSection;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+    self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://actionshare.duapp.com/actionshare/action_type/all.php"]];
+    [self.request setDelegate:self];
+    [self.request setRequestMethod:@"POST"];
+    [self.request startAsynchronous];
+    [queue addOperation:self.request];
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,6 +260,20 @@ EditSection;
     
 }
 
+#pragma mark - 
+-(void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSLog(@"%@",request.responseString);
+}
+
+-(void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSString *response = [request responseString];
+    NSArray *responseArray = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONData];
+    actionTypeArray = [[NSMutableArray alloc] initWithArray:responseArray];
+    [self.tableView reloadData];
+}
+
 
 #pragma mark -
 #pragma mark tableView
@@ -360,7 +384,51 @@ EditSection;
             
             return cell;
         }
+        case EEditSectionType:
+        {
+            static NSString *identifier = @"deleteCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+                [cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.detailTextLabel.text = @"类别";
             
+            return cell;
+        }
+        case EEditSectionStartTime:
+        {
+            static NSString *identifier = @"deleteCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+                [cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.detailTextLabel.text = @"开始时间";
+            
+            return cell;
+        }
+        case EEditSectionEndTime:
+        {
+            static NSString *identifier = @"deleteCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+                [cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.detailTextLabel.text = @"结束时间";
+            
+            return cell;
+        }
         default:
             break;
     }
@@ -385,6 +453,18 @@ EditSection;
     }
     return 64.0;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row)
+    {
+            
+    }
+}
+
+
+
+#pragma mark -
 
 - (void)changeImage:(UIButton *)sender
 {
