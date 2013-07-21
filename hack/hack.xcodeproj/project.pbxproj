@@ -80,6 +80,7 @@
 		D8C54C65179B8B9400CE2912 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C61179B8B9400CE2912 /* CHANGELOG.md */; };
 		D8C54C66179B8B9400CE2912 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C54C63179B8B9400CE2912 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8C54C67179B8B9400CE2912 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C64179B8B9400CE2912 /* README.md */; };
+		D8C54C6A179BADD800CE2912 /* IHAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C54C69179BADD800CE2912 /* IHAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,8 @@
 		D8C54C62179B8B9400CE2912 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		D8C54C63179B8B9400CE2912 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		D8C54C64179B8B9400CE2912 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		D8C54C68179BADD800CE2912 /* IHAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHAdapter.h; path = myModel/IHAdapter.h; sourceTree = "<group>"; };
+		D8C54C69179BADD800CE2912 /* IHAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHAdapter.m; path = myModel/IHAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,6 +537,8 @@
 				D89277C6179B001C0099C99A /* IHMovie.m */,
 				4CF4D41E179B50AB003118C6 /* IHUserManager.h */,
 				4CF4D41F179B50AB003118C6 /* IHUserManager.m */,
+				D8C54C68179BADD800CE2912 /* IHAdapter.h */,
+				D8C54C69179BADD800CE2912 /* IHAdapter.m */,
 			);
 			name = myModel;
 			sourceTree = "<group>";
@@ -699,6 +704,7 @@
 				9046D00C179AFFA2009460FC /* SystemManager.m in Sources */,
 				4CF4D420179B50AB003118C6 /* IHUserManager.m in Sources */,
 				D8C54C66179B8B9400CE2912 /* JSONKit.m in Sources */,
+				D8C54C6A179BADD800CE2912 /* IHAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

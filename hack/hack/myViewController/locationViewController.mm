@@ -11,6 +11,9 @@
 #import "detailViewController.h"
 #import "actionCreateViewController.h"
 #import "SystemManager.h"
+#import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
+#import "IHAdapter.h"
 
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
@@ -440,6 +443,19 @@
 		return s;
 	}
 	return nil ;
+}
+
+-(void)reloadActionsWithAdapter:(NSString *)aAdapter
+{
+    ASIHTTPRequest *request;
+    for (NSDictionary *dic in [[IHAdapter sharedAdapter] adapters])
+    {
+        if ([aAdapter isEqualToString:[dic objectForKey:@"name"]])
+        {
+            
+        }
+    }
+    
 }
 
 @end

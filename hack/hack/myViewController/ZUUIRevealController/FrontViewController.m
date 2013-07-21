@@ -13,6 +13,8 @@
 #import "IHActionTableViewCell.h"
 #import "locationViewController.h"
 #import "actionTableViewController.h"
+#import "JSONKit.h"
+#import "IHAdapter.h"
 
 typedef enum
 {
@@ -38,7 +40,7 @@ ViewType;
 {
     if (self = [super init])
     {
-        
+        items = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -206,7 +208,25 @@ ViewType;
 #pragma mark - request
 -(void)requestForGetType
 {
-    
+    request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://actionshare.duapp.com/actionshare/action_type/all.php"]];
+    [request setDelegate:self];
+    queue = [[ASINetworkQueue alloc] init];
+    [request setRequestMethod:@"POST"];
+    [request startAsynchronous];
+    [queue addOperation:request];
+}
+
+-(void)requestFailed:(ASIHTTPRequest *)aRequest
+{
+    NSLog(@"%@",aRequest.responseString);
+}
+
+-(void)requestFinished:(ASIHTTPRequest *)aRquest
+{
+    NSString *response = [aRquest responseString];
+    NSArray *responseArray = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONData];
+    items = [[NSMutableArray alloc] initWithArray:responseArray];
+    [[IHAdapter sharedAdapter] setAdapters:items];
 }
 
 #pragma mark - custom methods
@@ -214,15 +234,19 @@ ViewType;
 {
     if (!_popMenuView)
     {
-        NSMutableArray *items = [[NSMutableArray alloc]init];
-        NaviPopMenuItem *item = [[NaviPopMenuItem alloc]initWithTitle:@"test1" block:^{
-            NSLog(@"test1");
-        }];
-        [items addObject:item];
-        NaviPopMenuItem *test2 = [[NaviPopMenuItem alloc]initWithTitle:@"test2" block:^{
-            NSLog(@"test2");
-        }];
-        [items addObject:test2];
+        NSMutableArray *titleItems = [[NSMutableArray alloc] init];
+        for (NSDictionary *dic in items)
+        {
+            NaviPopMenuItem *item = [[NaviPopMenuItem alloc]initWithTitle:[dic objectForKey:@"name"] block:^{
+                for (id<actionReloadDelegate> tempDele in delegates)
+                {
+                    [tempDele reloadActionsWithAdapter:item.title];
+                }
+                
+            }];
+            [titleItems addObject:item];
+        }
+        
         _popMenuView = [[NaviPopMenuView alloc]initWithItems:items naviHeigth:self.navigationController.navigationBar.frame.size.height];
     }
     if (_popMenuView.superview)

@@ -15,5 +15,13 @@
     UISegmentedControl *segement;
     ASIHTTPRequest *request;
     ASINetworkQueue *queue;
+    NSMutableArray *items;
+    NSMutableArray *delegates;
 }
+@end
+
+@protocol actionReloadDelegate <NSObject>
+
+-(void)reloadActionsWithAdapter:(NSString *)aAdapter;
+
 @end

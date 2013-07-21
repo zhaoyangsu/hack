@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
-@interface locationViewController : UIViewController<BMKMapViewDelegate,BMKSearchDelegate>
+#import "FrontViewController.h"
+
+@interface locationViewController : UIViewController<BMKMapViewDelegate,BMKSearchDelegate,actionReloadDelegate>
 {
     BMKMapView *mapView;
     BMKUserLocation *userLocation;
@@ -21,4 +23,5 @@
 @property(nonatomic,strong)BMKUserLocation *userLocation;
 @property (nonatomic, assign) UIViewController *frontVC;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
