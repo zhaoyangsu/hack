@@ -9,6 +9,8 @@
 #import "locationViewController.h"
 #import "IHAction.h"
 #import "detailViewController.h"
+#import "actionCreateViewController.h"
+#import "SystemManager.h"
 
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
@@ -65,7 +67,8 @@
 
 @interface locationViewController ()
 @property (nonatomic, assign) BOOL clickAnnotation;
-@property (nonatomic,strong)UIView *toolBarView;
+@property (nonatomic, strong) UIView *toolBarView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation locationViewController
@@ -84,11 +87,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.dataSource = [[NSMutableArray alloc]init];
     _mapView = [[BMKMapView alloc]initWithFrame:self.view.bounds];
     [self .view addSubview:_mapView];
     _mapView.showsUserLocation = YES;
-    
- 
+
     // Do any additional setup after loading the view from its nib.
     _mapView.delegate = self;
     _search = [[BMKSearch alloc]init];
@@ -110,7 +113,7 @@
     
     _toolBarView.alpha = 0.7;
     [self.view addSubview:_toolBarView];
-    
+
     
 }
 
@@ -120,8 +123,23 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [_mapView viewWillAppear];
-    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
+    [_mapView viewWillDisappear];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    for (IHAction *action in self.dataSource)
+//    {
+//        [_mapView addAnnotation:action];
+//    }
 }
 #pragma mark -
 - (void)toCurrentLocation
@@ -141,12 +159,6 @@
     }];
 
 }
--(void)hideToolBar
-{
-    [UIView animateWithDuration:0.4 animations:^{
-        [_toolBarView setFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 50)];
-    }];
-}
 #pragma mark - 
 - (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)aUserLocation
 {
@@ -161,14 +173,9 @@
 
 #pragma mark -
 #pragma mark mapViewDelegate
-- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
-{
-    [self hideToolBar];
-}
-
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
-    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
+    if ([annotation isKindOfClass:[IHAction class]]) {
         BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
         newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
         newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
@@ -187,14 +194,22 @@
 }
 
 
+
 - (void)mapview:(BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate
 {
     if (!self.clickAnnotation)
     {
-        BMKPointAnnotation *annotation = [[BMKPointAnnotation alloc]init];
-        annotation.coordinate = coordinate;
-        annotation.title = @"";
-        [_mapView addAnnotation:annotation];
+        IHAction *action = [[IHAction alloc]init];
+        action.coordinate = coordinate;
+        action.actionTip = @"";
+        action.leaderUser = [SystemManager sharedInstance].user;
+        [self.dataSource addObject:action];
+        
+        
+//        BMKPointAnnotation *annotation = [[BMKPointAnnotation alloc]init];
+//        annotation.coordinate = coordinate;
+//        annotation.title = @"";
+        [_mapView addAnnotation:action];
     }
     else
     {
@@ -203,8 +218,21 @@
 }
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view
 {
-    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
-    [self presentModalViewController:detail animated:YES];
+    if ([view.annotation isKindOfClass:[IHAction class]])
+    {
+        actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:(IHAction *)view.annotation];
+        [actionVC setBlock:^(BOOL isDelete, IHAction *action) {
+            if (isDelete)
+            {
+                [mapView removeAnnotation:view.annotation];
+            }
+        }];
+        
+        [self.navigationController pushViewController:actionVC animated:YES];
+    }
+//    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+//    [self presentModalViewController:detail animated:YES];
+    
 }
 - (void)goToDetail:(IHAction *)action
 {

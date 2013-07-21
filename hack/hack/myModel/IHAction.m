@@ -35,7 +35,7 @@
     action.actionHeaderPhoto = self.actionHeaderPhoto;
     action.actionTip = self.actionTip;
     action.actionPosition = self.actionPosition;
-    action.positionDic = self.positionDic;
+//    action.positionDic = self.positionDic;
     action.photoes = self.photoes;
     action.audioes = self.audioes;
     action.videos = self.videos;
@@ -43,7 +43,17 @@
     action.insterNum = self.insterNum;
     action.createTime = self.createTime;
     action.endTime = self.endTime;
+    action.coordinate = self.coordinate;
     return action;
+}
+
+- (NSString *)title
+{
+    return self.actionTip;
+}
+- (NSString *)subtitle
+{
+    return nil;
 }
 
 @end

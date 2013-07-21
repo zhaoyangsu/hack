@@ -8,17 +8,22 @@
 
 #import "actionCreateViewController.h"
 #import "IHAction.h"
+#import <QuartzCore/QuartzCore.h>
 
 typedef enum
 {
-    EEditSectionAdd,
+    EEditSectionAdd = 0,
     EEditSectionImage,
-    EEditSectionVideo,
+    EEditSectionTip,
     EEditSectionDelete,
     EEditSectionCount,
 }
 EditSection;
 
+
+#define KImageViewWidth     140
+#define KBtnViewTag       10001
+#define KTextFieldTag     10002
 
 @interface actionCreateViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -28,6 +33,10 @@ EditSection;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) IHAction *oldAction;
 @property (nonatomic, strong) IHAction *commitAction;
+@property (nonatomic, strong) UIImage *tempImage;
+@property (nonatomic, strong) UIResponder *currentResponder;
+@property (nonatomic, assign)  CGFloat  keyboardHeight;
+@property (nonatomic, assign) BOOL needAdjust;
 @end
 
 @implementation actionCreateViewController
@@ -66,8 +75,20 @@ EditSection;
 {
     [super viewDidLoad];
     [self.imageBtn addTarget:self action:@selector(chooseImage:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+    self.navigationItem.rightBarButtonItem = item;
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +96,11 @@ EditSection;
     [super didReceiveMemoryWarning];
 }
 
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+}
 
 #pragma mark - 保存图片至沙盒
 - (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
@@ -104,9 +130,17 @@ EditSection;
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
     
     isFullScreen = NO;
-    [self.imageBtn setImage:savedImage forState:UIControlStateNormal];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:EEditSectionImage inSection:0]];
+    self.tempImage = savedImage;
+    if (cell)
+    {
+        UIButton *btn = (UIButton *)[cell viewWithTag:KBtnViewTag];
+        [btn setImage:image forState:UIControlStateNormal];
+    }
     
-    self.imageBtn.tag = 100;
+//    [self.imageBtn setImage:savedImage forState:UIControlStateNormal];
+//    
+//    self.imageBtn.tag = 100;
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -226,12 +260,109 @@ EditSection;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"AddCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell)
+    switch (indexPath.row)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        case EEditSectionAdd:
+        {
+            static NSString *identifier = @"AddCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 20, 44)];
+                [addBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+                [addBtn setTitle:@"删除" forState:UIControlStateNormal];
+                addBtn.backgroundColor = [UIColor greenColor];
+                addBtn.layer.cornerRadius = 20;
+                [cell.contentView addSubview:addBtn];
+                cell.clipsToBounds = YES;
+            }
+            return cell;
+            break;
+        }
+        case EEditSectionImage:
+        {
+            static NSString *identifier = @"ImageCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+                cell.imageView.backgroundColor = [UIColor blackColor];
+                UIButton *btn = [[UIButton alloc]initWithFrame:CGRectZero];
+                btn.tag = KBtnViewTag;
+                if ([self.commitAction isMine])
+                {
+                    [btn addTarget:self action:@selector(changeImage:) forControlEvents:UIControlEventTouchUpInside];
+                }
+                
+                [cell.contentView addSubview:btn];
+                cell.selectionStyle  = UITableViewCellSelectionStyleNone;
+            }
+            UIImage *tempImage ;
+            if (!self.tempImage)
+            {
+                tempImage = [UIImage imageNamed: self.commitAction.leaderUser.userPhoto];
+            }
+            if (!tempImage)
+            {
+                tempImage = [UIImage imageNamed:@"20115201212718777801.jpg"];
+            }
+            UIButton  *btn = (UIButton *)[cell viewWithTag:KBtnViewTag];
+            [btn setImage:tempImage forState:UIControlStateNormal];
+            btn.frame = CGRectMake((tableView.frame.size.width - KImageViewWidth) / 2 , 10, KImageViewWidth, KImageViewWidth);
+            return cell;
+            break;
+        }
+        case EEditSectionTip:
+        {
+            static NSString *identifier = @"tipCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+                UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 2 * 10, 44)];
+                textField.delegate = self;
+                [textField addTarget:self action:@selector(tipChanged:) forControlEvents:UIControlEventEditingChanged];
+                textField.borderStyle = UITextBorderStyleRoundedRect;
+                if (!self.commitAction.isMine)
+                {
+                    textField.enabled = NO;
+                }
+                [cell.contentView addSubview:textField];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            UITextField *textField = (UITextField *)[cell viewWithTag:KTextFieldTag];
+            textField.text = self.commitAction.actionTip;
+            return cell;
+            break;
+        }
+        case EEditSectionDelete:
+        {
+            static NSString *identifier = @"deleteCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+                UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 20, 44)];
+                [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+                [deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
+                deleteBtn.backgroundColor = [UIColor orangeColor];
+                deleteBtn.layer.cornerRadius = 20;
+                [cell.contentView addSubview:deleteBtn];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            return cell;
+        }
+            
+        default:
+            break;
     }
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
     return cell;
 }
 
@@ -245,5 +376,105 @@ EditSection;
     {
         return 0.0;
     }
+    else if(EEditSectionImage == indexPath.row)
+    {
+        return KImageViewWidth + 2 * 10;
+    }
+    return 64.0;
 }
+
+- (void)changeImage:(UIButton *)sender
+{
+    UIImagePickerController *controller = [[UIImagePickerController alloc]init];
+    controller.delegate = self;
+    [self presentModalViewController:controller animated:YES];
+}
+
+- (void)tipChanged:(UITextField *)sender
+{
+    self.commitAction.actionTip = [sender.text copy];
+}
+
+- (void)deleteAction:(UIButton *)seder
+{
+    if (self.block)
+    {
+        self.block(YES,nil);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)done:(UIButton *)sender
+{
+    if (self.block)
+    {
+        self.block(NO,self.commitAction);
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGFloat keyHeight =[[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    if (keyHeight > 0)
+    {
+        _keyboardHeight = keyHeight;
+    }
+    if (self.currentResponder)
+    {
+        UITextField *textField = (UITextField *)self.currentResponder;
+        [self adjustTableToFitKeyBoard:textField];
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
+}
+
+- (void)adjustTableToFitKeyBoard:(UITextField *)textField
+{
+    if(_keyboardHeight == 0 )
+    {
+        return;
+    }
+
+    CGFloat y = [[textField superview] convertPoint:textField.frame.origin toView:self.view].y;
+    CGFloat subHeight = y + textField.frame.size.height - (self.view.frame.size.height - _keyboardHeight);
+    
+    if (subHeight > 0)
+    {
+        UIEdgeInsets inset = UIEdgeInsetsMake(0, 0, _keyboardHeight, 0);
+        self.tableView.contentInset = inset;
+        self.tableView.scrollIndicatorInsets = inset;
+        
+        CGFloat offsetY = self.tableView.contentOffset.y;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableView.contentOffset = CGPointMake(0, offsetY + subHeight + 4 * 10);
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+    }
+    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currentResponder = textField;
+
+    [self adjustTableToFitKeyBoard:textField];
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.currentResponder = nil;
+}
+
+
 @end

@@ -89,8 +89,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    IHAction *selectAction = (IHAction *)[actionsArray objectAtIndex:indexPath.row];
-    detailViewController *detailVC = [[detailViewController alloc] initWithAction:selectAction];
     IHAction *action = self.dateSeouce[indexPath.row];
     detailViewController *actionVC = [[detailViewController alloc]initWithAction:action];
     [self.navigationController pushViewController:actionVC animated:YES];

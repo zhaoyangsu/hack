@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "IHUser.h"
 #import "IHActionType.h"
+#import "BMKAnnotation.h"
 
-@interface IHAction : NSObject<NSCopying>
-
+@interface IHAction : NSObject<NSCopying,BMKAnnotation>
 {
 //    IHActionType *type;
 //    IHUser *leaderUser;
@@ -34,27 +34,30 @@
 //    NSDate *endTime;
 }
 
-@property (nonatomic,retain) IHActionType *type;
-@property (nonatomic,retain) IHUser *leaderUser;
-@property (nonatomic,assign) int64_t itemId;
+@property (nonatomic, strong) IHActionType *type;
+@property (nonatomic, strong) IHUser *leaderUser;
+@property (nonatomic, assign) int64_t itemId;
 
-@property (nonatomic,retain) NSString *actionName;
-@property (nonatomic,retain) NSString *actionHeaderPhoto;
-@property (nonatomic,retain) NSString *actionTip;
-@property (nonatomic,retain) NSString *actionPosition;
-@property (nonatomic,retain) NSMutableDictionary *positionDic;
+@property (nonatomic, strong) NSString *actionName;
+@property (nonatomic, strong) NSString *actionHeaderPhoto;
+@property (nonatomic, strong) NSString *actionTip;
+@property (nonatomic, strong) NSString *actionPosition;
+//@property (nonatomic,retain) NSMutableDictionary *positionDic;
 
-@property (nonatomic,retain) NSMutableArray *photoes;
-@property (nonatomic,retain) NSMutableArray *audioes;
-@property (nonatomic,retain) NSMutableArray *videos;
+@property (nonatomic, strong) NSMutableArray *photoes;
+@property (nonatomic, strong) NSMutableArray *audioes;
+@property (nonatomic, strong) NSMutableArray *videos;
 
-@property (nonatomic,assign) NSInteger addedNum;
-@property (nonatomic,assign) NSInteger insterNum;
+@property (nonatomic, assign) NSInteger addedNum;
+@property (nonatomic, assign) NSInteger insterNum;
 
-@property (nonatomic,retain) NSDate *createTime;
-@property (nonatomic,retain) NSDate *startTime;
-@property (nonatomic,retain) NSDate *endTime;
+@property (nonatomic, strong) NSDate *createTime;
+@property (nonatomic, strong) NSDate *startTime;
+@property (nonatomic, strong) NSDate *endTime;
 
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+- (NSString *)title;
+- (NSString *)subtitle;
 
 - (BOOL)isMine;
 @end

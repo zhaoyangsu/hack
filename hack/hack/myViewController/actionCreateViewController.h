@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class IHAction;
+
+typedef void(^reslutBlock)(BOOL isDelete,IHAction *action);
+
+
 @interface actionCreateViewController : UIViewController <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-{
-    
-}
-
-@property (nonatomic,retain) IBOutlet UIButton *imageBtn;
-
+@property (nonatomic, retain) IBOutlet UIButton *imageBtn;
+@property (nonatomic, copy) reslutBlock block;
+- (void)setBlock:(reslutBlock)block;
 - (id)initWithAction:(IHAction *)action;
-
 @end
