@@ -8,7 +8,11 @@
 
 #import "IHAction.h"
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import "ASIHTTPRequest.h"
+=======
+#import "ASIHTTPRequestDelegate.h"
+>>>>>>> 08fa1c0cd6851ec7bb11b8ba2949b2346b5dae73
 @interface detailViewController : UIViewController <ASIHTTPRequestDelegate>
 {
     IHAction *detailAction;

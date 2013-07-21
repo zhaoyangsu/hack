@@ -28,6 +28,7 @@ EditSection;
 #define KImageViewWidth     140
 #define KBtnViewTag       10001
 #define KTextFieldTag     10002
+#define KDataPickerTag    10003
 
 @interface actionCreateViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -41,6 +42,9 @@ EditSection;
 @property (nonatomic, strong) UIResponder *currentResponder;
 @property (nonatomic, assign)  CGFloat  keyboardHeight;
 @property (nonatomic, assign) BOOL needAdjust;
+@property (nonatomic, strong) UIActionSheet *actionSheet;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSMutableDictionary *dateDic;
 @end
 
 @implementation actionCreateViewController
@@ -79,6 +83,7 @@ EditSection;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.dateDic = [[NSMutableDictionary alloc]initWithCapacity:2];
     [self.imageBtn addTarget:self action:@selector(chooseImage:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
     self.navigationItem.rightBarButtonItem = item;
@@ -99,6 +104,12 @@ EditSection;
     [self.request setRequestMethod:@"POST"];
     [self.request startAsynchronous];
     [queue addOperation:self.request];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tableView.frame = self.view.bounds;
 }
 
 - (void)didReceiveMemoryWarning
@@ -406,13 +417,22 @@ EditSection;
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (!cell)
             {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
                 [cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             cell.tag = EEditSectionStartTime;
-            cell.detailTextLabel.text = @"开始时间";
+            cell.textLabel.text = @"开始时间";
+            NSDate *date = self.dateDic[@(indexPath.row)];
+            if (date)
+            {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                
+                cell.detailTextLabel.text = [formatter stringFromDate:date];
+
+            }
             
             return cell;
         }
@@ -422,14 +442,22 @@ EditSection;
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             if (!cell)
             {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
                 [cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             cell.tag = EEditSectionEndTime;
-            cell.detailTextLabel.text = @"结束时间";
-            
+            cell.textLabel.text = @"结束时间";
+            NSDate *date = self.dateDic[@(indexPath.row)];
+            if (date)
+            {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                
+                cell.detailTextLabel.text = [formatter stringFromDate:date];
+                
+            }
             return cell;
         }
         default:
@@ -459,7 +487,11 @@ EditSection;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (EEditSectionEndTime == indexPath.row || EEditSectionStartTime == indexPath.row)
+    {
+        self.indexPath = indexPath;
+        [self onTapDataPickerBtn];
+    }
 }
 
 
@@ -570,6 +602,83 @@ EditSection;
         }
     }
 }
+
+- (void)onTapDataPickerBtn
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                                                             delegate:nil
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    self.actionSheet = actionSheet;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
+    [button setTitle:@"取消" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(cancelDataPicker:) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(10, 8, 60, 30);
+    [actionSheet addSubview:button];
+    
+    
+    UIButton *button1 = [[UIButton alloc]initWithFrame:CGRectZero];
+    [button1 setTitle:@"确定" forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(selectDataPicker:) forControlEvents:UIControlEventTouchUpInside];
+    button1.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 70, 8, 60, 30);
+    [actionSheet addSubview:button1];
+    
+    UIDatePicker *dataPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
+    dataPicker.tag = KDataPickerTag;
+    
+//    if (self.selectIndex < 0)
+//    {
+//        [dataPicker selectRow:0 inComponent:0 animated:YES];
+//    }
+//    else
+//    {
+//        [dataPicker selectRow:self.selectIndex inComponent:0 animated:YES];
+//    }
+//    self.title.frame = CGRectMake(button.frame.origin.x + button.frame.size.width + KGap/2, button.top, button1.left - button.right - KGap, button.height);
+//    [actionSheet addSubview:self.title];
+    [actionSheet addSubview:dataPicker];
+    [actionSheet showInView:self.view];
+}
+
+
+- (void)cancelDataPicker:(UIButton*)button
+{
+    UIActionSheet *actionSheet = self.actionSheet;
+    [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+}
+
+- (void)selectDataPicker:(UIButton*)button
+{
+    UIActionSheet *actionSheet = self.actionSheet;
+    UIDatePicker *picker = (UIDatePicker *)[actionSheet viewWithTag:KDataPickerTag];
+//    self.selectIndex = [picker selectedRowInComponent:0];
+    [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+    NSDate *date = picker.date;
+    if (self.actionSheet)
+    {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.indexPath];
+        if (cell)
+        {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
+            
+            cell.detailTextLabel.text = [formatter stringFromDate:date];
+            [self.tableView reloadData];
+        }
+        self.dateDic[@(self.indexPath.row)]  = date;
+        
+        [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    }
+}
+
+//- (void)dataPicked:(NSIndexPath *)indexPath
+//{
+//    DataPickerCell *cell = (DataPickerCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+//    self.selectedCountryIndex = cell.selectIndex;
+//    [self selectCountryByIndex:cell.selectIndex];
+//}
 
 
 @end
