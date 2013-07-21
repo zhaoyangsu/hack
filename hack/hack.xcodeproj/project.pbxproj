@@ -77,6 +77,9 @@
 		D89277C4179AFFFB0099C99A /* IHMovieImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C3179AFFFA0099C99A /* IHMovieImageBtn.m */; };
 		D89277C7179B001C0099C99A /* IHMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D89277C6179B001C0099C99A /* IHMovie.m */; };
 		D8C54C5F179B806900CE2912 /* actionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C5E179B806900CE2912 /* actionCreateViewController.xib */; };
+		D8C54C65179B8B9400CE2912 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C61179B8B9400CE2912 /* CHANGELOG.md */; };
+		D8C54C66179B8B9400CE2912 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C54C63179B8B9400CE2912 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8C54C67179B8B9400CE2912 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8C54C64179B8B9400CE2912 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,6 +233,10 @@
 		D89277C5179B001C0099C99A /* IHMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IHMovie.h; path = myModel/IHMovie.h; sourceTree = "<group>"; };
 		D89277C6179B001C0099C99A /* IHMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IHMovie.m; path = myModel/IHMovie.m; sourceTree = "<group>"; };
 		D8C54C5E179B806900CE2912 /* actionCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = actionCreateViewController.xib; sourceTree = "<group>"; };
+		D8C54C61179B8B9400CE2912 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		D8C54C62179B8B9400CE2912 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		D8C54C63179B8B9400CE2912 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		D8C54C64179B8B9400CE2912 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +369,7 @@
 		907B0F56179A4287009EE2D9 /* hack */ = {
 			isa = PBXGroup;
 			children = (
+				D8C54C60179B8B9400CE2912 /* JSONKit-master */,
 				9046D009179AFF5D009460FC /* service */,
 				90B4CB71179AA036001BD25C /* mapapi.bundle */,
 				4CF4D3E8179A8808003118C6 /* baiduMap */,
@@ -560,6 +568,17 @@
 			path = myViewController;
 			sourceTree = "<group>";
 		};
+		D8C54C60179B8B9400CE2912 /* JSONKit-master */ = {
+			isa = PBXGroup;
+			children = (
+				D8C54C61179B8B9400CE2912 /* CHANGELOG.md */,
+				D8C54C62179B8B9400CE2912 /* JSONKit.h */,
+				D8C54C63179B8B9400CE2912 /* JSONKit.m */,
+				D8C54C64179B8B9400CE2912 /* README.md */,
+			);
+			path = "JSONKit-master";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,6 +643,8 @@
 				90229562179B733B00C7B9BD /* STOD%%2X$OQC3P%_~CXE~}A.jpg in Resources */,
 				90229564179B734200C7B9BD /* D9PJ]7CCPN$XW9()1J38@VP.jpg in Resources */,
 				D8C54C5F179B806900CE2912 /* actionCreateViewController.xib in Resources */,
+				D8C54C65179B8B9400CE2912 /* CHANGELOG.md in Resources */,
+				D8C54C67179B8B9400CE2912 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +698,7 @@
 				D89277C7179B001C0099C99A /* IHMovie.m in Sources */,
 				9046D00C179AFFA2009460FC /* SystemManager.m in Sources */,
 				4CF4D420179B50AB003118C6 /* IHUserManager.m in Sources */,
+				D8C54C66179B8B9400CE2912 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
