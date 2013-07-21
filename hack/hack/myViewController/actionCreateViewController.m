@@ -37,6 +37,8 @@ EditSection;
 @property (nonatomic, strong) UIResponder *currentResponder;
 @property (nonatomic, assign)  CGFloat  keyboardHeight;
 @property (nonatomic, assign) BOOL needAdjust;
+@property (nonatomic, strong) UIActionSheet *actionSheet;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @end
 
 @implementation actionCreateViewController
@@ -489,6 +491,73 @@ EditSection;
             [textView resignFirstResponder];
         }
     }
+}
+
+- (void)onTapDataPickerBtn:(NSIndexPath *)indexPath
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                                                             delegate:nil
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    self.actionSheet = actionSheet;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectZero];
+    [button setTitle:@"取消" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(cancelDataPicker:) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(10, 8, 60, 30);
+    [actionSheet addSubview:button];
+    
+    
+    UIButton *button1 = [[UIButton alloc]initWithFrame:CGRectZero];
+    [button1 setTitle:@"确定" forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(selectDataPicker:) forControlEvents:UIControlEventTouchUpInside];
+    button1.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 70, 8, 60, 30);
+    [actionSheet addSubview:button1];
+    
+    UIPickerView *dataPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
+//    dataPicker.tag = EDataPickerTag;
+    dataPicker.dataSource = self;
+    dataPicker.delegate = self;
+    dataPicker.showsSelectionIndicator = YES;
+//    if (self.selectIndex < 0)
+//    {
+//        [dataPicker selectRow:0 inComponent:0 animated:YES];
+//    }
+//    else
+//    {
+//        [dataPicker selectRow:self.selectIndex inComponent:0 animated:YES];
+//    }
+//    self.title.frame = CGRectMake(button.frame.origin.x + button.frame.size.width + KGap/2, button.top, button1.left - button.right - KGap, button.height);
+//    [actionSheet addSubview:self.title];
+    [actionSheet addSubview:dataPicker];
+    [actionSheet showInView:self];
+}
+
+
+- (void)cancelDataPicker:(UIButton*)button
+{
+    UIActionSheet *actionSheet = self.actionSheet;
+    [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+}
+
+- (void)selectDataPicker:(UIButton*)button
+{
+    UIActionSheet *actionSheet = self.actionSheet;
+    UIPickerView *picker = (UIPickerView *)[actionSheet viewWithTag:EDataPickerTag];
+//    self.selectIndex = [picker selectedRowInComponent:0];
+    [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+    
+    [self.target performSelector:@selector(dataPicked:) withObject:self.indexPath];
+    
+    [self setNeedsDisplay];
+}
+
+- (void)dataPicked:(NSIndexPath *)indexPath
+{
+    DataPickerCell *cell = (DataPickerCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    self.selectedCountryIndex = cell.selectIndex;
+    [self selectCountryByIndex:cell.selectIndex];
 }
 
 
