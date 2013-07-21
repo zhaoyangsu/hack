@@ -19,5 +19,5 @@
 }
 @property(nonatomic,strong)BMKMapView *mapView;
 @property(nonatomic,strong)BMKUserLocation *userLocation;
-
+@property (nonatomic, assign) UIViewController *frontVC;
 @end

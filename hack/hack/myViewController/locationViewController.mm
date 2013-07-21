@@ -233,13 +233,14 @@
             }
         }];
         
-        [self.navigationController pushViewController:actionVC animated:YES];
+        [self.frontVC.navigationController pushViewController:actionVC animated:YES];
+//        detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+//        [self presentModalViewController:detail animated:YES];
+
     }
-//    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
-//    [self presentModalViewController:detail animated:YES];
     
-    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
-    [self.navigationController pushViewController:detail animated:YES];
+//    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+//    [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)goToDetail:(IHAction *)action
 {
