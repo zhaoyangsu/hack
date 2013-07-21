@@ -129,11 +129,8 @@
 {
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
-<<<<<<< HEAD
     [_mapView addAnnotations:self.dataSource];
 
-=======
->>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -147,15 +144,10 @@
     [super viewDidAppear:animated];
 //    for (IHAction *action in self.dataSource)
 //    {
-//        [_mapView addAnnotation:action];
-<<<<<<< HEAD
+
 
     [self displayToolBar];
 
-=======
-//    }
-    [self displayToolBar];
->>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 }
 #pragma mark -
 - (void)toCurrentLocation
@@ -250,10 +242,6 @@
 
     }
     
-<<<<<<< HEAD
-
-=======
->>>>>>> 290f8c0f8f6cadc95e88f58f9cb3c5253ac272b9
 //    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
 //    [self.navigationController pushViewController:detail animated:YES];
 }

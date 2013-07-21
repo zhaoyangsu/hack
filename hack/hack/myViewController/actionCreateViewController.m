@@ -323,7 +323,9 @@ EditSection;
             {
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 2 * 10, 44)];
+                textField.font = [UIFont systemFontOfSize:16.0];
                 textField.delegate = self;
+                textField.tag = KTextFieldTag;
                 [textField addTarget:self action:@selector(tipChanged:) forControlEvents:UIControlEventEditingChanged];
                 textField.borderStyle = UITextBorderStyleRoundedRect;
                 if (!self.commitAction.isMine)
@@ -474,6 +476,18 @@ EditSection;
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     self.currentResponder = nil;
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.isDragging)
+    {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:EEditSectionTip inSection:0]];
+        if (cell)
+        {
+            UITextField *textView = (UITextField *)[cell viewWithTag:KTextFieldTag];
+            [textView resignFirstResponder];
+        }
+    }
 }
 
 
