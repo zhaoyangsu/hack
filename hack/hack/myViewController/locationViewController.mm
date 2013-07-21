@@ -129,7 +129,6 @@
 {
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
-<<<<<<< HEAD
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -145,9 +144,7 @@
 //    {
 //        [_mapView addAnnotation:action];
 //    }
-=======
     [self displayToolBar];
->>>>>>> 9a10b93221010d425fe019c065f7617d5e357058
 }
 #pragma mark -
 - (void)toCurrentLocation
@@ -226,7 +223,6 @@
 }
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view
 {
-<<<<<<< HEAD
     if ([view.annotation isKindOfClass:[IHAction class]])
     {
         actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:(IHAction *)view.annotation];
@@ -242,10 +238,8 @@
 //    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
 //    [self presentModalViewController:detail animated:YES];
     
-=======
     detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
     [self.navigationController pushViewController:detail animated:YES];
->>>>>>> 9a10b93221010d425fe019c065f7617d5e357058
 }
 - (void)goToDetail:(IHAction *)action
 {

@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "hack/myViewController/locationViewController.mm"
-         timestampString = "396059281.053956"
+         timestampString = "396065505.085043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "397"
-         endingLineNumber = "397"
-         landmarkName = "-getMyBundlePath1:"
+         startingLineNumber = "391"
+         endingLineNumber = "391"
+         landmarkName = "-getRouteAnnotationView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
