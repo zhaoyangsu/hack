@@ -5,17 +5,23 @@
 //  Created by ZhaoyangSu on 13-7-20.
 //  Copyright (c) 2013年 ZhaoyangSu. All rights reserved.
 //
-
+#import "IHUserManager.h"
 #import "LeftViewController.h"
+#import "ASIFormDataRequest.h"
 #import "locationViewController.h"
 
 #define LABELTITLETAG 200
 
 @interface LeftViewController ()
-
+@property(nonatomic,strong)UIView *logInView;
+@property(nonatomic,strong)UITextField *nameTextField;
+@property(nonatomic,strong)UITextField *secretTextField;
 @end
 
 @implementation LeftViewController
+@synthesize logInView = _logInView;
+@synthesize nameTextField = _nameTextField;
+@synthesize secretTextField = _secretTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,6 +49,39 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     [self.view setBackgroundColor:[UIColor grayColor]];
+    
+    IHUserManager *userManager = [IHUserManager shareUserManager];
+    if (YES == [userManager isLogIn]) {
+        
+    }else{
+        _logInView = [[UIView alloc]initWithFrame:self.view.bounds];
+        _logInView.backgroundColor = [UIColor grayColor];
+        
+        _nameTextField = [[UITextField alloc]initWithFrame:CGRectMake(80, 80, 150, 30)];
+        [_nameTextField setBackgroundColor:[UIColor whiteColor]];
+        _nameTextField.placeholder = @"用户名";
+        [_logInView addSubview:_nameTextField];
+        
+        _secretTextField = [[UITextField alloc]initWithFrame:CGRectMake(80, 140, 150, 30)];
+        [_secretTextField setBackgroundColor:[UIColor whiteColor]];
+         _secretTextField.placeholder = @"密码";
+        [_logInView addSubview:_secretTextField];
+        
+        UIButton *logInbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [logInbtn setFrame:CGRectMake(80, 200, 50, 30)];
+        [logInbtn setTitle:@"登陆" forState:UIControlStateNormal];
+        [logInbtn addTarget:self action:@selector(logIn) forControlEvents:UIControlEventTouchUpInside];
+        [_logInView addSubview:logInbtn];
+        
+        UIButton *registerbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [registerbtn setFrame:CGRectMake(150, 200, 50, 30)];
+        [registerbtn setTitle:@"注册" forState:UIControlStateNormal];
+        [registerbtn addTarget:self action:@selector(logIn) forControlEvents:UIControlEventTouchUpInside];
+        [_logInView addSubview:registerbtn];
+        [self.view addSubview:_logInView];
+    
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,5 +123,49 @@
     
     return cell;
 }
+#pragma mark --
+- (void)logIn
+{
+    if (nil == _nameTextField.text || nil == _secretTextField.text) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"用户名或密码不能为空" message:@"请检查填写" delegate: nil  cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+        return;
+    }
+ 
+    
+    NSURL *url = [NSURL URLWithString:@"http://actionshare.duapp.com/actionshare/user/login.php"];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc]initWithURL:url];
+    [request setPostValue:_nameTextField.text forKey:@"name"];
+     [request setPostValue:_secretTextField.text forKey:@"password"];
+    request.delegate = self;
+    [request startAsynchronous];
+    
+}
+#pragma mark - request Delegate
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+   NSData *tResponseString = [request responseData];
+    NSString *str = [[NSString alloc]initWithData:tResponseString encoding:NSUTF8StringEncoding];
+    if ([str isEqualToString:@"false"]) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登陆失败" message:@"请检查用户名密码" delegate: nil  cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+        return;
+    }
+    NSLog(@"%@",str);
+    NSDictionary* json =[NSJSONSerialization
+                         JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+    NSLog(@"%@",[json objectForKey:@"id"]);
+    IHUserManager *manager = [IHUserManager shareUserManager];
+    NSString *id =[json objectForKey:@"id"];
+    [_logInView removeFromSuperview];
+    [manager setUserId:id];
+    [manager setUserName:[json objectForKey:@"id"]];
+    [manager archiveToUserDefault];
 
+}
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登陆失败" message:@"请检查网络连接" delegate: nil  cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
 @end

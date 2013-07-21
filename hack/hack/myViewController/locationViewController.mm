@@ -106,10 +106,14 @@
     [_toolBarView addSubview:btn];
     
     UIButton *toDesbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [toDesbtn setFrame:CGRectMake(self.view.bounds.size.width/2.0-30, 10, 60, 30)];
+    [toDesbtn setFrame:CGRectMake(self.view.bounds.size.width - 70, 10, 60, 30)];
     [toDesbtn setTitle:@"到这儿去" forState:UIControlStateNormal];
     [toDesbtn addTarget:self action:@selector(toDestication) forControlEvents:UIControlEventTouchUpInside];
     [_toolBarView addSubview:toDesbtn];
+    
+    localLab = [[UILabel alloc] initWithFrame:CGRectMake(70, 10, self.view.bounds.size.width - 80, 30)];
+    [localLab setBackgroundColor:[UIColor clearColor]];
+    [_toolBarView addSubview:localLab];
     
     _toolBarView.alpha = 0.7;
     [self.view addSubview:_toolBarView];
@@ -125,6 +129,7 @@
 {
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
+<<<<<<< HEAD
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -140,12 +145,15 @@
 //    {
 //        [_mapView addAnnotation:action];
 //    }
+=======
+    [self displayToolBar];
+>>>>>>> 9a10b93221010d425fe019c065f7617d5e357058
 }
 #pragma mark -
 - (void)toCurrentLocation
 {
     [_mapView setCenterCoordinate:_userLocation.location.coordinate animated:YES ] ;
-//    [self  goToDetail:nil];
+    [self  goToDetail:nil];
     
 }
 - (void)toDestication
@@ -178,7 +186,7 @@
     if ([annotation isKindOfClass:[IHAction class]]) {
         BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
         newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
-        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        newAnnotationView.animatesDrop = NO;// 设置该标注点动画显示
         return newAnnotationView;
     }
     return nil;
@@ -218,6 +226,7 @@
 }
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view
 {
+<<<<<<< HEAD
     if ([view.annotation isKindOfClass:[IHAction class]])
     {
         actionCreateViewController *actionVC = [[actionCreateViewController alloc]initWithAction:(IHAction *)view.annotation];
@@ -233,6 +242,10 @@
 //    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
 //    [self presentModalViewController:detail animated:YES];
     
+=======
+    detailViewController *detail = [[detailViewController alloc]initWithNibName:@"detailViewController" bundle:nil];
+    [self.navigationController pushViewController:detail animated:YES];
+>>>>>>> 9a10b93221010d425fe019c065f7617d5e357058
 }
 - (void)goToDetail:(IHAction *)action
 {
@@ -256,7 +269,7 @@
 - (void)onGetWalkingRouteResult:(BMKPlanResult*)result errorCode:(int)error
 {
     NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
-	[_mapView removeAnnotations:array];
+//	[_mapView removeAnnotations:array];
 	array = [NSArray arrayWithArray:_mapView.overlays];
 	[_mapView removeOverlays:array];
 	if (error == BMKErrorOk) {
@@ -264,9 +277,9 @@
         
 		RouteAnnotation* item = [[RouteAnnotation alloc]init];
 		item.coordinate = result.startNode.pt;
-		item.title = @"起点";
+//		item.title = @"起点";
 		item.type = 0;
-		[_mapView addAnnotation:item];
+//		[_mapView addAnnotation:item];
 		
 		int index = 0;
 		int size = [plan.routes count];
@@ -305,8 +318,8 @@
 		item = [[RouteAnnotation alloc]init];
 		item.coordinate = result.endNode.pt;
 		item.type = 1;
-		item.title = @"终点";
-		[_mapView addAnnotation:item];
+//		item.title = @"终点";
+//		[_mapView addAnnotation:item];
 		BMKPolyline* polyLine = [BMKPolyline polylineWithPoints:points count:index];
 		[_mapView addOverlay:polyLine];
         

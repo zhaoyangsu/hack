@@ -80,6 +80,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 600)];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 - (void)layoutViews
 {
