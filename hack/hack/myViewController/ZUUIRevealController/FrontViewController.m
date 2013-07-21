@@ -203,6 +203,11 @@ ViewType;
     [self setSelected:sender.selectedSegmentIndex];
 }
 
+#pragma mark - request
+-(void)requestForGetType
+{
+    
+}
 
 #pragma mark - custom methods
 - (void)showManuList

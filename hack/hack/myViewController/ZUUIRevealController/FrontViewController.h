@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
 
-@interface FrontViewController :UIViewController
+@interface FrontViewController :UIViewController<ASIHTTPRequestDelegate>
 {
     UISegmentedControl *segement;
+    ASIHTTPRequest *request;
+    ASINetworkQueue *queue;
 }
 @end
