@@ -54,14 +54,14 @@ ViewType;
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
 		
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"三", @"三") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
     
 //	}
 
 
-    segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"地图",@"列表", nil]];
+    segement = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"列表",@"地图", nil]];
     segement.selectedSegmentIndex = 0;
     [segement addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
     segement.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -106,13 +106,15 @@ ViewType;
     self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
     locationViewController *locatioVC = [[locationViewController alloc]init];
     [self addChildViewController:locatioVC];
-    [locatioVC.view setFrame:self.view.bounds];
-    [self.viewControllers addObject:locatioVC];
+
     actionTableViewController *actionVC = [[actionTableViewController alloc]init];
+    [actionVC.view setFrame:self.view.bounds];
     [self.viewControllers addObject:actionVC];
+    [self.viewControllers addObject:locatioVC];
     [self addChildViewController:actionVC];
-    [self.view addSubview:locatioVC.view];
-    _selectedIndex = 0;
+    [locatioVC.view setFrame:self.view.bounds];
+    [self.view addSubview:actionVC.view];
+        _selectedIndex = 0;
     
 }
 

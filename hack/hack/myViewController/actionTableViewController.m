@@ -44,6 +44,7 @@
         action.leaderUser = user;
         [self.dateSeouce addObject:action];
     }
+    NSLog(@"%@",self.view);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 8;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,8 +90,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    IHAction *selectAction = (IHAction *)[actionsArray objectAtIndex:indexPath.row];
-    detailViewController *detailVC = [[detailViewController alloc] initWithAction:selectAction];
     IHAction *action = self.dateSeouce[indexPath.row];
     detailViewController *actionVC = [[detailViewController alloc]initWithAction:action];
     [self.navigationController pushViewController:actionVC animated:YES];
