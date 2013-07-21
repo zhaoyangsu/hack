@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "IHUser.h"
-
-@interface LeftViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+#import "ASIHTTPRequest.h"
+@interface LeftViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,ASIHTTPRequestDelegate>
 {
     UIImageView *userPhotoView;
 }
