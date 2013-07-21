@@ -126,6 +126,7 @@ EditSection;
     [self saveImage:image withName:@"currentImage.png"];
     
     NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    self.commitAction.leaderUser.userPhoto = fullPath;
     
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
     

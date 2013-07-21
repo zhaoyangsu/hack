@@ -68,7 +68,7 @@
 @interface locationViewController ()
 @property (nonatomic, assign) BOOL clickAnnotation;
 @property (nonatomic, strong) UIView *toolBarView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation locationViewController
@@ -128,15 +128,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_mapView viewWillAppear];
-    [_mapView addAnnotations:self.dataSource];
+    
 
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear: animated];
-    [_mapView viewWillDisappear];
+//    [_mapView viewWillDisappear];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -153,7 +152,7 @@
 - (void)toCurrentLocation
 {
     [_mapView setCenterCoordinate:_userLocation.location.coordinate animated:YES ] ;
-    [self  goToDetail:nil];
+ //   [self  goToDetail:nil];
     
 }
 - (void)toDestication
@@ -233,6 +232,13 @@
             if (isDelete)
             {
                 [mapView removeAnnotation:view.annotation];
+            }
+            else
+            {
+                ((IHAction *)view.annotation).actionTip = action.actionTip;
+                ((IHAction *)view.annotation).leaderUser.userPhoto = action.leaderUser.userPhoto;
+//                [self.dataSource removeObject:view.annotation];
+//                [self.dataSource addObject:action];
             }
         }];
         

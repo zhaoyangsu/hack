@@ -33,7 +33,7 @@
     action.itemId = self.itemId;
     action.actionName = self.actionName;
     action.actionHeaderPhoto = self.actionHeaderPhoto;
-    action.actionTip = self.actionTip;
+    action.actionTip = [self.actionTip copy];
     action.actionPosition = self.actionPosition;
 //    action.positionDic = self.positionDic;
     action.photoes = self.photoes;

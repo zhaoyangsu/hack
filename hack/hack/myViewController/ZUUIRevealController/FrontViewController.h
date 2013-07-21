@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FrontViewController :UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface FrontViewController :UIViewController
 {
     UISegmentedControl *segement;
 }

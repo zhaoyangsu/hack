@@ -26,7 +26,7 @@ ViewType;
 @interface FrontViewController ()
 @property (nonatomic, strong) UIButton *titleBtn;
 @property (nonatomic, strong) NaviPopMenuView *popMenuView;
-@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, assign) NSInteger selected;
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 @end
 
@@ -107,19 +107,24 @@ ViewType;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
-    locationViewController *locatioVC = [[locationViewController alloc]init];
-//    [self addChildViewController:locatioVC];
+    
 
-    actionTableViewController *actionVC = [[actionTableViewController alloc]init];
-    [actionVC.view setFrame:self.view.bounds];
-    [self.viewControllers addObject:actionVC];
-    [self.viewControllers addObject:locatioVC];
-    locatioVC.frontVC = self;
-//    [self addChildViewController:actionVC];
-    [locatioVC.view setFrame:self.view.bounds];
-    [self.view addSubview:actionVC.view];
-        _selectedIndex = segement.selectedSegmentIndex;
+    if (!self.viewControllers) {
+        self.viewControllers = [[NSMutableArray alloc]initWithCapacity:2];
+        locationViewController *locatioVC = [[locationViewController alloc]init];
+        //    [self addChildViewController:locatioVC];
+        actionTableViewController *actionVC = [[actionTableViewController alloc]init];
+        [actionVC.view setFrame:self.view.bounds];
+        [self.viewControllers addObject:actionVC];
+        [self.viewControllers addObject:locatioVC];
+        locatioVC.frontVC = self;
+        //    [self addChildViewController:actionVC];
+        [locatioVC.view setFrame:self.view.bounds];
+        [self.view addSubview:actionVC.view];
+
+    }
+    //    NSInteger index = segement.selectedSegmentIndex;
+        self.selected = segement.selectedSegmentIndex;
     
 }
 
@@ -128,22 +133,22 @@ ViewType;
     [super didReceiveMemoryWarning];
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex
+- (void)setSelected:(NSInteger)selectedIndex
 {
-    if (_selectedIndex != selectedIndex)
+    if (_selected != selectedIndex)
     {
-        UIViewController *oldController = self.viewControllers[_selectedIndex];
-        switch (selectedIndex)
+        UIViewController *oldController = self.viewControllers[_selected];
+        switch (_selected)
         {
             case EViewTypeMap:
             {
-                _selectedIndex = selectedIndex;
+                _selected = selectedIndex;
                 
                 break;
             }
             case EViewTypeList:
             {
-                _selectedIndex = selectedIndex;
+                _selected = selectedIndex;
                 break;
             }
             
@@ -154,6 +159,19 @@ ViewType;
         UIViewController *newController = self.viewControllers[selectedIndex];
         newController.view.alpha = 0.0;
         [self.view addSubview:newController.view];
+        if ([newController isKindOfClass:[locationViewController class]])
+        {
+            locationViewController *temp = (locationViewController *)newController;
+            [temp.mapView viewWillAppear];
+            [temp.mapView addAnnotations:temp.dataSource];
+//            [temp viewWillAppear:YES];
+        }
+        else
+        {
+            locationViewController *temp = (locationViewController *)oldController;
+            [temp.mapView viewWillDisappear];
+//            [temp viewWillAppear:YES];
+        }
         [UIView animateWithDuration:0.3 animations:^{
             newController.view.alpha = 1.0;
         } completion:^(BOOL finished) {
@@ -181,7 +199,7 @@ ViewType;
 //        default:
 //            break;
 //    }
-    [self setSelectedIndex:sender.selectedSegmentIndex];
+    [self setSelected:sender.selectedSegmentIndex];
 }
 
 
