@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class FrontViewController;
 @interface actionTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *actionsArray;
 }
+
+@property (nonatomic, assign) FrontViewController *frontVC;
 
 @end

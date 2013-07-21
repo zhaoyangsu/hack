@@ -11,6 +11,7 @@
 #import "detailViewController.h"
 #import "IHAction.h"
 #import "actionCreateViewController.h"
+#import "FrontViewController.h"
 
 @interface actionTableViewController ()
 @property (nonatomic, strong) NSMutableArray *dateSeouce;
@@ -97,7 +98,7 @@
 {
     IHAction *action = self.dateSeouce[indexPath.row];
     detailViewController *actionVC = [[detailViewController alloc]initWithAction:action];
-    [self.navigationController pushViewController:actionVC animated:YES];
+    [self.frontVC.navigationController pushViewController:actionVC animated:YES];
 }
 
 @end

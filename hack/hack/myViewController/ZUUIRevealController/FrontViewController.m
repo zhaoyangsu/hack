@@ -114,6 +114,7 @@ ViewType;
         locationViewController *locatioVC = [[locationViewController alloc]init];
         //    [self addChildViewController:locatioVC];
         actionTableViewController *actionVC = [[actionTableViewController alloc]init];
+        actionVC.frontVC = self;
         [actionVC.view setFrame:self.view.bounds];
         [self.viewControllers addObject:actionVC];
         [self.viewControllers addObject:locatioVC];
