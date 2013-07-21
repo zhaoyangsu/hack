@@ -60,11 +60,13 @@
         _nameTextField = [[UITextField alloc]initWithFrame:CGRectMake(80, 80, 150, 30)];
         [_nameTextField setBackgroundColor:[UIColor whiteColor]];
         _nameTextField.placeholder = @"用户名";
+        _nameTextField.delegate = self;
         [_logInView addSubview:_nameTextField];
         
         _secretTextField = [[UITextField alloc]initWithFrame:CGRectMake(80, 140, 150, 30)];
         [_secretTextField setBackgroundColor:[UIColor whiteColor]];
          _secretTextField.placeholder = @"密码";
+        _secretTextField.delegate = self;
         [_logInView addSubview:_secretTextField];
         
         UIButton *logInbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -167,5 +169,12 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登陆失败" message:@"请检查网络连接" delegate: nil  cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
+}
+
+#pragma mark - 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 @end

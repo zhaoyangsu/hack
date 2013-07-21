@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IHUser.h"
 #import "ASIHTTPRequest.h"
-@interface LeftViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,ASIHTTPRequestDelegate>
+@interface LeftViewController : UIViewController <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,ASIHTTPRequestDelegate>
 {
     UIImageView *userPhotoView;
 }
